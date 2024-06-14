@@ -294,6 +294,8 @@ body.dark .search-field i {
     width: auto;
 }
 
+
+
 /* cuadros blancos */
 .product-grid {
     display: grid;
@@ -304,8 +306,8 @@ body.dark .search-field i {
 }
 
 .product-card {
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: rgb(220, 218, 218);
+    border: 1px solid #ddd8d8;
     border-radius: 8px;
     padding: 16px;
     text-align: center;
