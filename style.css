@@ -3,7 +3,7 @@
 
 * {
     margin: 0;
-    padding: 0;
+    padding:0px;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     transition: all 0.9s ease;
@@ -34,16 +34,16 @@ body.dark {
 
 nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    height: 70px;
+    top:0;
+    left:0;
+    height: 75px;
     width: 100%;
     background-color: var(--nav-color);
-    z-index: 100;
+    z-index: 150;
 }
 
 body.dark nav {
-    border: 1px solid #393838;
+    border: 5px solid #393838;
 }
 
 nav .nav-bar {
@@ -113,6 +113,17 @@ nav .nav-bar .logo a {
 
 .nav-links li:hover a::before {
     opacity: 1;
+}
+
+.nav-links li a.login-link {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li a.login-link img {
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
 }
 
 .nav-bar .darkLight-searchBox {
@@ -293,8 +304,6 @@ body.dark .search-field i {
     height: auto;
     width: auto;
 }
-
-
 
 /* cuadros blancos */
 .product-grid {
