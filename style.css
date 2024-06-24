@@ -355,11 +355,11 @@ body.dark .search-field i {
 
 
 .styled-image {
-    width: 999px; /* Cambia el tamaño de la imagen */
+    width:1000px; /* Cambia el tamaño de la imagen */
     height: auto; /* Mantiene la proporción de la imagen */
-    border: 5px solid #000; /* Añade un borde negro */
-    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid #000; /* Añade un borde negro */
+    border-radius:0px; /* Bordes redondeados */
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Sombra */
-    margin: 200px; /* Espaciado alrededor de la imagen */
+    margin: 290px; /* Espaciado alrededor de la imagen */
 }
 
