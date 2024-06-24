@@ -350,3 +350,25 @@ body.dark .search-field i {
 .product-card:hover {
     transform: translateY(-10px);
 }
+
+
+
+.cart-search-container {
+    display: flex;
+    align-items: center;
+}
+
+.cart {
+    margin-left: 20px;
+}
+
+.cart a {
+    color: #666;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.cart a i {
+    font-size: 30px; /* Tamaño del icono del carrito */
+    color: #666; /* Color del icono del carrito */
+}
