@@ -350,3 +350,16 @@ body.dark .search-field i {
 .product-card:hover {
     transform: translateY(-10px);
 }
+
+
+
+
+.styled-image {
+    width: 999px; /* Cambia el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border: 5px solid #000; /* Añade un borde negro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Sombra */
+    margin: 200px; /* Espaciado alrededor de la imagen */
+}
+
