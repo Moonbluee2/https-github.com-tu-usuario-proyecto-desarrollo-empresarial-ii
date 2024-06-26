@@ -330,7 +330,7 @@ body.dark .search-field i {
 }
 
 .product-card h3 {
-    margin: 16px 0 8px 0;
+    margin: 16px 0 10px 0;
     font-size: 18px;
 }
 
@@ -353,14 +353,14 @@ body.dark .search-field i {
 
 
 
-
-.styled-image {
-    width:1000px; /* Cambia el tamaño de la imagen */
+/*Imagen Principal*/
+.styled-image { 
+    width:1200px; /* Cambia el tamaño de la imagen */
     height: auto; /* Mantiene la proporción de la imagen */
     border: 1px solid #000; /* Añade un borde negro */
     border-radius:0px; /* Bordes redondeados */
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Sombra */
-    margin: 290px; /* Espaciado alrededor de la imagen */
+    margin: 170px; /* Espaciado alrededor de la imagen */
 }
 
 
@@ -383,5 +383,5 @@ body.dark .search-field i {
 
 .cart a i {
     font-size: 30px; /* Tamaño del icono del carrito */
-    color: #666; /* Color del icono del carrito */
+    color: #000000; /* Color del icono del carrito */
 }
