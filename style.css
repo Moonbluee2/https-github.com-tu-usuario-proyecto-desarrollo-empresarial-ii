@@ -374,19 +374,71 @@ body.dark .search-field i {
     padding: 10px;
 }
 
-/* Contenedor de carrito y usuario */
+/* Contenedor de carrito, usuario y buscador */
 .cart-user-container {
     display: flex;
     align-items: center;
     margin-left: auto; /* Mueve el contenedor a la derecha */
 }
 
+/* Estilos del modo oscuro/claro y buscador */
+.darkLight-searchBox {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Espaciado a la derecha */
+}
+
+.dark-light {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Espaciado a la derecha */
+}
+
+.dark-light i {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+}
+
+.searchToggle i {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.search-field {
+    display: flex;
+    align-items: center;
+}
+
+.search-field input {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-field i {
+    font-size: 24px;
+    color: #000;
+    margin-left: 5px;
+}
+
 /* User */
+.user {
+    margin-left: 20px;
+}
+
 .user a {
     color: #666;
     font-size: 24px;
     text-decoration: none;
 }
+
 .user a i {
     font-size: 30px; /* Tamaño del icono del usuario */
     color: #000000; /* Color del icono del usuario */
@@ -396,11 +448,13 @@ body.dark .search-field i {
 .cart {
     margin-left: 20px;
 }
+
 .cart a {
     color: #666;
     font-size: 24px;
     text-decoration: none;
 }
+
 .cart a i {
     font-size: 30px; /* Tamaño del icono del carrito */
     color: #000000; /* Color del icono del carrito */
