@@ -368,7 +368,7 @@ body.dark .search-field i {
 .header-container {
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
+    padding: -5px;
 }
 
 /* Contenedor de carrito y usuario */
