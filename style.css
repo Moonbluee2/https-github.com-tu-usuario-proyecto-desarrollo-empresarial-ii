@@ -317,31 +317,33 @@ body.dark .search-field i {
     background-color: rgb(220, 218, 218);
     border: 1px solid #ddd8d8;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px; /* Aumenta el padding */
     text-align: center;
     transition: transform 0.2s;
+    font-size: 1.1em; /* Aumenta el tamaño de fuente base */
 }
 
 .product-card img {
     width: 100%;
     height: auto;
     border-radius: 8px 8px 0 0;
+    max-height: 500px; /* Limita la altura máxima de la imagen */
 }
 
 .product-card h3 {
-    margin: 10px 0;
-    font-size: 16px; /* Reduce el tamaño de la fuente */
+    margin: 15px 0;
+    font-size: 20px; /* Aumenta el tamaño de la fuente */
 }
 
 .product-card p {
-    font-size: 12px; /* Reduce el tamaño de la fuente */
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
     color: #666;
 }
 
 .product-card span {
     display: block;
-    margin: 8px 0;
-    font-size: 14px; /* Reduce el tamaño de la fuente */
+    margin: 10px 0;
+    font-size: 18px; /* Aumenta el tamaño de la fuente */
     font-weight: 600;
     color: #333;
 }
@@ -349,6 +351,7 @@ body.dark .search-field i {
 .product-card:hover {
     transform: translateY(-5px); /* Ajusta el efecto hover */
 }
+
 
 
 /* Imagen Principal */
