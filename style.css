@@ -364,9 +364,15 @@ body.dark .search-field i {
 }
 
 
+/* Contenedor principal */
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
 
-
-.cart-search-container {
+/* Contenedor de carrito y usuario */
+.cart-user-container {
     display: flex;
     align-items: center;
 }
@@ -381,6 +387,20 @@ body.dark .search-field i {
     text-decoration: none;
 }
 .cart a i {
-    font-size: 30px;
-    color: #000000;
+    font-size: 30px; /* Tamaño del icono del carrito */
+    color: #000000; /* Color del icono del carrito */
+}
+
+/* User */
+.user {
+    margin-left: 20px;
+}
+.user a {
+    color: #666;
+    font-size: 24px;
+    text-decoration: none;
+}
+.user a i {
+    font-size: 30px; /* Tamaño del icono del usuario */
+    color: #000000; /* Color del icono del usuario */
 }
