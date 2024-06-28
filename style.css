@@ -368,13 +368,25 @@ body.dark .search-field i {
 .header-container {
     display: flex;
     justify-content: flex-end;
-    padding: -5px;
+    padding: 10px;
 }
 
 /* Contenedor de carrito y usuario */
 .cart-user-container {
     display: flex;
     align-items: center;
+    margin-left: auto; /* Mueve el contenedor a la derecha */
+}
+
+/* User */
+.user a {
+    color: #666;
+    font-size: 24px;
+    text-decoration: none;
+}
+.user a i {
+    font-size: 30px; /* Tamaño del icono del usuario */
+    color: #000000; /* Color del icono del usuario */
 }
 
 /* Carrito */
@@ -389,18 +401,4 @@ body.dark .search-field i {
 .cart a i {
     font-size: 30px; /* Tamaño del icono del carrito */
     color: #000000; /* Color del icono del carrito */
-}
-
-/* User */
-.user {
-    margin-left: 20px;
-}
-.user a {
-    color: #666;
-    font-size: 24px;
-    text-decoration: none;
-}
-.user a i {
-    font-size: 30px; /* Tamaño del icono del usuario */
-    color: #000000; /* Color del icono del usuario */
 }
