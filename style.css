@@ -308,17 +308,16 @@ body.dark .search-field i {
 /* cuadros blancos */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 2px;
-    margin-top: 0px; /* Ajustar para que no se superponga con la navegación fija */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 20px; /* Ajusta el espacio entre tarjetas */
+    padding: 20px;
 }
 
 .product-card {
     background-color: rgb(220, 218, 218);
     border: 1px solid #ddd8d8;
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     transition: transform 0.2s;
 }
@@ -330,26 +329,27 @@ body.dark .search-field i {
 }
 
 .product-card h3 {
-    margin: 16px 0 10px 0;
-    font-size: 18px;
+    margin: 10px 0;
+    font-size: 16px; /* Reduce el tamaño de la fuente */
 }
 
 .product-card p {
-    font-size: 14px;
+    font-size: 12px; /* Reduce el tamaño de la fuente */
     color: #666;
 }
 
 .product-card span {
     display: block;
     margin: 8px 0;
-    font-size: 16px;
+    font-size: 14px; /* Reduce el tamaño de la fuente */
     font-weight: 600;
     color: #333;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px); /* Ajusta el efecto hover */
 }
+
 
 /* Imagen Principal */
 .styled-image { 
