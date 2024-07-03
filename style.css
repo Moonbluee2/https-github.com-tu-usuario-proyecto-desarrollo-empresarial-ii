@@ -49,7 +49,7 @@ body.dark nav {
 nav .nav-bar {
     position: relative;
     height: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     width: 100%;
     background-color: var(--nav-color);
     margin: 0 auto;
@@ -59,16 +59,23 @@ nav .nav-bar {
     justify-content: space-between;
 }
 
-.logo-image {
-    max-height: 60px;
-    height: auto;
-    width: auto;
+nav .nav-bar .sidebarOpen {
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
 }
 
-.center-container {
-    flex-grow: 5;
-    display: flex;
-    justify-content: center;
+nav .nav-bar .logo a {
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.menu .logo-toggle {
+    display: none;
 }
 
 .nav-bar .nav-links {
@@ -77,7 +84,7 @@ nav .nav-bar {
 }
 
 .nav-bar .nav-links li {
-    margin: 0 15px;
+    margin: 0 px;
     list-style: none;
 }
 
@@ -314,11 +321,10 @@ body.dark .search-field i {
 }
 
 
-/* Contenedor principal */
+/* Contenedor principal derecho*/
 .header-container {
     display: flex;
-    justify-content: flex-end;
-    padding: 10px;
+    align-items: center;
 }
 
 /* Contenedor de carrito, usuario y buscador */
@@ -377,7 +383,7 @@ body.dark .search-field i {
 
 /* User */
 .user {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .user a {
@@ -389,11 +395,12 @@ body.dark .search-field i {
 .user a i {
     font-size: 30px; /* Tamaño del icono del usuario */
     color: #000000; /* Color del icono del usuario */
+    margin-left: 5px;
 }
 
 /* Carrito */
 .cart {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .cart a {
@@ -405,6 +412,7 @@ body.dark .search-field i {
 .cart a i {
     font-size: 30px; /* Tamaño del icono del carrito */
     color: #000000; /* Color del icono del carrito */
+    margin-left: 5px;
 }
 
 
