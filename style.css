@@ -94,7 +94,7 @@ nav .nav-bar .logo a {
     font-weight: 400;
     color: var(--text-color);
     text-decoration: none;
-    padding: 10px;
+    padding: 20px;
 }
 
 .nav-links li a::before {
@@ -304,8 +304,6 @@ body.dark .search-field i {
     height: auto;
     width: auto;
 }
-
-
 
 
 /* Imagen Principal */
