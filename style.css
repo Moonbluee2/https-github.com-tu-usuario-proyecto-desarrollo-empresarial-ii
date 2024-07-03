@@ -422,22 +422,7 @@ body.dark .search-field i {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*Card*/
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -453,6 +438,12 @@ body.dark .search-field i {
     overflow: hidden;
     width: 300px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para transformar y sombra */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Mueve la tarjeta hacia arriba cuando se pasa el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
 }
 
 .card img {
