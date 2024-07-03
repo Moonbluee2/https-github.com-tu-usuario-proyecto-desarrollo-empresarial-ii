@@ -49,7 +49,7 @@ body.dark nav {
 nav .nav-bar {
     position: relative;
     height: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     width: 100%;
     background-color: var(--nav-color);
     margin: 0 auto;
@@ -59,23 +59,16 @@ nav .nav-bar {
     justify-content: space-between;
 }
 
-nav .nav-bar .sidebarOpen {
-    color: var(--text-color);
-    font-size: 25px;
-    padding: 5px;
-    cursor: pointer;
-    display: none;
+.logo-image {
+    max-height: 60px;
+    height: auto;
+    width: auto;
 }
 
-nav .nav-bar .logo a {
-    font-size: 25px;
-    font-weight: 500;
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.menu .logo-toggle {
-    display: none;
+.center-container {
+    flex-grow: 5;
+    display: flex;
+    justify-content: center;
 }
 
 .nav-bar .nav-links {
@@ -84,7 +77,7 @@ nav .nav-bar .logo a {
 }
 
 .nav-bar .nav-links li {
-    margin: 0 5px;
+    margin: 0 15px;
     list-style: none;
 }
 
