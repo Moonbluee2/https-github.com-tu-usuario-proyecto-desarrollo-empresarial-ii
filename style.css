@@ -442,7 +442,7 @@ body.dark .search-field i {
 
 .card:hover {
     transform: translateY(-5px); /* Mueve la tarjeta hacia arriba cuando se pasa el cursor */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9); /* Aumenta la sombra */
 }
 
 .card img {
