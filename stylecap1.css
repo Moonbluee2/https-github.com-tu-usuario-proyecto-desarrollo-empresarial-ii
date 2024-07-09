@@ -305,7 +305,6 @@ body.dark .search-field i {
     width: auto;
 }
 
-
 /* Imagen Principal */
 .styled-image { 
     width: 100%;
@@ -318,8 +317,7 @@ body.dark .search-field i {
     margin: 170px auto; /* Centrado y espaciado alrededor de la imagen */
 }
 
-
-/* Contenedor principal derecho*/
+/* Contenedor principal derecho */
 .header-container {
     display: flex;
     align-items: center;
@@ -421,3 +419,102 @@ body.dark .search-field i {
 
 
 
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 100px 0 60px;
+    margin-top: 75px; /* Espacio para que no choque con el nav */
+}
+
+.gallery-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gallery-item {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.gallery-preview {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.preview-item {
+    width: 900%;
+    height: auto;
+    max-height: 700px;
+    max-width: 700px;
+}
+
+.perfume-info {
+    flex: 1;
+    padding: 0 50px;
+}
+
+.perfume-info h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.perfume-info h3 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 20px;
+}
+
+.perfume-info p {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.product-details {
+    list-style-type: none;
+    padding: 0;
+    font-size: 30px; /* Ajusta este valor según lo que necesites */
+}
+
+.product-details li {
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 30px; /* Ajusta este valor según lo que necesites */
+    margin-top: 15px; /* Espaciado superior para separarlo de la lista */
+}
+
+.agregar-carrito {
+    padding: 19px 25px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 20px; /* Ajusta este valor según lo que necesites */
+}
+
+.agregar-carrito:hover {
+    background-color: #333;
+}
+
+
+.agregar-carrito:hover {
+    background-color: #333;
+}

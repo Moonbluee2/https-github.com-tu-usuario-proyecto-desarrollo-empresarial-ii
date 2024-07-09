@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylecap1.css">
-    <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <title>STRAWBERRY-CAPINFO1</title>
+    <title>STRAWBERRY-CAPINFO-#1</title>
 </head>
 <body>
     <nav>
@@ -20,12 +19,11 @@
                     <i class='bx bx-x siderbarClose'></i>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="INICIO.html">Inicio</a></li>
+                    <li><a href="INICIO.html">Catálogo</a></li>
                     <li><a href="#">Marcas</a></li>
                 </ul>
             </div>
-            
             <div class="header-container">
                 <div class="cart-user-container">
                     <div class="darkLight-searchBox">
@@ -55,7 +53,32 @@
         </div>
     </nav>
 
-    
-    <script src="script.js"></script>
+    <section class="gallery container">
+        <div class="gallery-list">
+            <img src="images/DRNGOINICIAL.png" alt="Image 1" class="gallery-item" onclick="changePreview(this)">
+            <img src="images/DRNGORIGHT.png" alt="Image 2" class="gallery-item" onclick="changePreview(this)">
+            <img src="images/DRNGOLEFT.png" alt="Image 3" class="gallery-item" onclick="changePreview(this)">
+            <img src="images/DRNGOABAJO.png" alt="Image 4" class="gallery-item" onclick="changePreview(this)">
+        </div>
+        <div class="gallery-preview">
+            <img src="images/DRNGOINICIAL.png" alt="Preview Image" class="preview-item" id="preview">
+        </div>
+        <div class="perfume-info">
+            <h2>MANCHA DGO KHAKI</h2>
+            <h3>Detalle de producto</h3>
+            <ul class="product-details">
+                <li><strong>Marca:</strong>Caps company.</li>
+                <li><strong>Gorra tipo:</strong> snapback</li>
+                <li><strong>Familia o colección:</strong> MANCHAS</li>
+                <li><strong>Tipo De Visera:</strong>Visera moldeable/con diseño</li>
+                <li><strong>Talla:</strong>Unitalla</li>
+                <li><strong>Sugerido para:</strong> Hombre /Unisex</li>
+            </ul>
+            <p>Precio: $200.00</p>
+            <button id="addToCartBtn" class="agregar-carrito" data-id="1">Agregar al carrito</button>
+        </div>
+    </section>
+
+    <script src="scriptcap1.js"></script>
 </body>
 </html>
