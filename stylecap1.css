@@ -28,7 +28,7 @@ body.dark {
     --body-color: #18191A;
     --nav-color: #242526;
     --side-nav: #242526;
-    --text-color: #CCC;
+    --text-color: #f6efef;
     --search-bar: #242526;
 }
 
@@ -518,3 +518,4 @@ body.dark .search-field i {
 .agregar-carrito:hover {
     background-color: #333;
 }
+ 
