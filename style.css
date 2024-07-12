@@ -479,9 +479,41 @@ body.dark .search-field i {
 .card button:hover {
     background-color: #0056b3;
 }
+/*Carrito de compras*/
+body {
+    font-family: Arial, sans-serif;
+}
 
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
 
+.products, .cart {
+    float: left;
+    width: 45%;
+    margin: 2.5%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 12px #aaa;
+}
 
+.products h2, .cart h2 {
+    margin-top: 0;
+}
 
+.product, .cart-item {
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 0;
+}
+
+.product:last-child, .cart-item:last-child {
+    border-bottom: none;
+}
+
+.product button, .cart-item button {
+    float: right;
+}
 
 
