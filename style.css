@@ -127,8 +127,38 @@ nav .nav-bar .logo a {
 }
 
 /* submenu*/
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--nav-color);
+    min-width: 200px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+.submenu li {
+    width: 100%;
+}
 
+.submenu li a {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: var(--text-color);
+    white-space: nowrap;
+}
+
+.submenu li a:hover {
+    background-color: #888;
+}
+
+.nav-links li:hover .submenu {
+    display: block;
+}
+
+/* SearchBox */
 .nav-bar .darkLight-searchBox {
     display: flex;
     align-items: center;
