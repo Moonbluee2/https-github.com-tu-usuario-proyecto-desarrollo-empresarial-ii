@@ -84,8 +84,9 @@ nav .nav-bar .logo a {
 }
 
 .nav-bar .nav-links li {
-    margin: 0 px;
+    margin: 0 10px;
     list-style: none;
+    position: relative;
 }
 
 .nav-links li a {
@@ -121,7 +122,7 @@ nav .nav-bar .logo a {
 }
 
 .nav-links li a.login-link img {
-    margin-right: 10px;
+    margin-right: 0px;
     width: 30px;
     height: 30px;
 }
@@ -137,6 +138,9 @@ nav .nav-bar .logo a {
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
 }
 
 .submenu li {
@@ -144,18 +148,23 @@ nav .nav-bar .logo a {
 }
 
 .submenu li a {
+    display: block;
     padding: 10px 20px;
     font-size: 16px;
     color: var(--text-color);
     white-space: nowrap;
+    transition: all 0.3s ease-in-out;
 }
 
 .submenu li a:hover {
-    background-color: #888;
+    background-color: #555; 
+    color: #fff; 
+    transform: translateX(2px); 
 }
 
 .nav-links li:hover .submenu {
     display: block;
+    align-items: center;
 }
 
 /* SearchBox */
@@ -509,9 +518,41 @@ body.dark .search-field i {
 .card button:hover {
     background-color: #0056b3;
 }
+/*Carrito de compras*/
+body {
+    font-family: Arial, sans-serif;
+}
 
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
 
+.products, .cart {
+    float: left;
+    width: 45%;
+    margin: 2.5%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 12px #aaa;
+}
 
+.products h2, .cart h2 {
+    margin-top: 0;
+}
 
+.product, .cart-item {
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 0;
+}
+
+.product:last-child, .cart-item:last-child {
+    border-bottom: none;
+}
+
+.product button, .cart-item button {
+    float: right;
+}
 
 
