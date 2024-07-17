@@ -25,7 +25,7 @@ body {
 }
 
 body.dark {
-    --body-color: #18191A;
+    --body-color: #19191b;
     --nav-color: #242526;
     --side-nav: #242526;
     --text-color: #CCC;
@@ -455,12 +455,11 @@ body.dark .search-field i {
     margin-left: 5px;
 }
 
-
-
-
-
-
-
+/* Estilos del icono del usuario y carrito en modo oscuro */
+body.dark .user a i,
+body.dark .cart a i {
+    color: #CCC; /* Color en modo oscuro */
+}
 
 
 /*Card*/
