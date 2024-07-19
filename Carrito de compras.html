@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylecap1.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <title>STRAWBERRY-CAPINFO-#13</title>
+    <title>STRAWBERRY</title>
 </head>
 <body>
     <nav>
@@ -24,6 +25,7 @@
                     <li><a href="#">Marcas</a></li>
                 </ul>
             </div>
+            
             <div class="header-container">
                 <div class="cart-user-container">
                     <div class="darkLight-searchBox">
@@ -45,6 +47,7 @@
                     <div class="user">
                         <a href="#"><i class='bx bx-user-circle'></i></a>
                     </div>
+
                     <div class="cart">
                         <a href="#"><i class='bx bx-cart'></i></a>
                     </div>
@@ -53,34 +56,32 @@
         </div>
     </nav>
 
-    <section class="gallery container">
-        <div class="gallery-list">
-            <img src="images/MANCHA DGO KHAKI.png" alt="Image 1" class="gallery-item" onclick="changePreview(this)">
-            <img src="images/MANCHA DGO KHAKI LEFT.png" alt="Image 2" class="gallery-item" onclick="changePreview(this)">
-            <img src="images/MANCHA DGO KHAKI RIGTH.png" alt="Image 3" class="gallery-item" onclick="changePreview(this)">
-            <img src="images/MANCHA DGO KHAKI BELLOW.png" alt="Image 3" class="gallery-item" onclick="changePreview(this)">
 
+    <!-- Carrito de compras -->
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carrito de Compras</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Carrito de Compras</h1>
+            <div class="products">
+                <!-- Productos se cargarán aquí -->
+            </div>
+            <div class="cart">
+                <h2>Tu Carrito</h2>
+                <div class="cart-items">
+                    <!-- Items del carrito se cargarán aquí -->
+                </div>
+                <div class="cart-total">
+                    Total: $<span id="total">0.00</span>
+                </div>
+            </div>
         </div>
-        <div class="gallery-preview">
-            <img src="images/MANCHA DGO KHAKI.png" alt="Preview Image" class="preview-item" id="preview">
-        </div>
-        <div class="perfume-info">
-            <h2>MANCHA DGO KHAKI</h2>
-            <h3>Detalle de producto</h3>
-            <ul class="product-details">
-                <li><strong>Marca:</strong>Caps company.</li>
-                <li><strong>Gorra tipo:</strong> snapback</li>
-                <li><strong>Familia o colección:</strong>Caps company.</li>
-                <li><strong>Tipo De Visera:</strong>Visera plana</li>
-                <li><strong>Talla:</strong>Unitalla</li>
-                <li><strong>Ajustable:</strong>Ajustable con broche</li>
-                <li><strong>Sugerido para:</strong> Hombre /Unisex</li>
-            </ul>
-            <p>Precio:$ $ 750.00</p>
-            <button id="addToCartBtn" class="agregar-carrito" data-id="1">Agregar al carrito</button>
-        </div>
-    </section>
-
-    <script src="scriptcap1.js"></script>
-</body>
-</html>
+        <script src="script.js"></script>
+    </body>
+    </html>

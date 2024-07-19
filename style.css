@@ -25,7 +25,7 @@ body {
 }
 
 body.dark {
-    --body-color: #18191A;
+    --body-color: #19191b;
     --nav-color: #242526;
     --side-nav: #242526;
     --text-color: #CCC;
@@ -139,30 +139,33 @@ nav .nav-bar .logo a {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 200;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
 }
 
 .submenu li {
-    margin-right: 10px;
     width: 100%;
-    height: 40px;
 }
 
 .submenu li a {
+    display: block;
     padding: 10px 20px;
     font-size: 16px;
     color: var(--text-color);
     white-space: nowrap;
+    transition: all 0.3s ease-in-out;
 }
 
 .submenu li a:hover {
-    background-color: #888;
+    background-color: #555; 
+    color: #fff; 
+    transform: translateX(2px); 
 }
 
 .nav-links li:hover .submenu {
     display: block;
     align-items: center;
 }
-
 
 /* SearchBox */
 .nav-bar .darkLight-searchBox {
@@ -285,6 +288,28 @@ body.dark .search-field input {
 
 body.dark .search-field i {
     color: var(--text-color);
+}
+
+/* contenedor de productos-buscador*/
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .card {
+    background-color: #333;
+    color: #ccc;
 }
 
 @media (max-width: 790px) {
@@ -452,12 +477,11 @@ body.dark .search-field i {
     margin-left: 5px;
 }
 
-
-
-
-
-
-
+/* Estilos del icono del usuario y carrito en modo oscuro */
+body.dark .user a i,
+body.dark .cart a i {
+    color: #CCC; /* Color en modo oscuro */
+}
 
 
 /*Card*/
@@ -515,9 +539,3 @@ body.dark .search-field i {
 .card button:hover {
     background-color: #0056b3;
 }
-
-
-
-
-
-
