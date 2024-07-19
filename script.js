@@ -41,6 +41,102 @@ body.addEventListener("click", e => {
     }
 });
 
+// Carrito de compras
+const products = [
+    { id: 1, name: 'LUCKY BLACK', price: 850.00, imgSrc: 'images/LUCKY BLACK.png' },
+    { id: 2, name: 'LUCKY BLUE', price: 850.00, imgSrc: 'images/LUCKY BLUE.png' },
+    { id: 3, name: 'COLORS 2024 CURVE', price: 800.00, imgSrc: 'images/COLORS 2024 CURVE.png' },
+    { id: 4, name: 'COLORS GOLD 2023', price: 850.00, imgSrc: 'images/COLORS GOLD 2023.png' },
+    { id: 5, name: 'POKER GOLD', price: 850.00, imgSrc: 'images/POKER GOLD.png' },
+    // Añadir más productos según sea necesario
+];
+// Función para mostrar productos en tarjetas
+function displayProducts() {
+    const productsContainer = document.querySelector('.products');
+    products.forEach(product => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.innerHTML = `
+            <img src="${product.imgSrc}" alt="Imagen de producto">
+            <div class="card-content">
+                <h2>${product.name}</h2>
+                <p>$ ${product.price.toFixed(2)}</p>
+                <button class="add-to-cart" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Añadir al carrito</button>
+            </div>
+        `;
+        productsContainer.appendChild(cardDiv);
+    });
 
+    // Añadir eventos a los botones "Añadir al carrito"
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-id');
+            const productName = this.getAttribute('data-name');
+            const productPrice = parseFloat(this.getAttribute('data-price'));
+
+            addToCart(productId, productName, productPrice);
+        });
+    });
+}
+
+// Función para agregar producto al carrito
+function addToCart(productId, productName, productPrice) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let product = { id: productId, name: productName, price: productPrice };
+    
+    // Verificar si el producto ya está en el carrito
+    let existingProductIndex = cart.findIndex(item => item.id === productId);
+    if (existingProductIndex >= 0) {
+        // Si el producto ya está, actualiza la cantidad
+        cart[existingProductIndex].quantity = (cart[existingProductIndex].quantity || 1) + 1;
+    } else {
+        // Si el producto no está, agrégalo al carrito
+        cart.push({ ...product, quantity: 1 });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCart();
+}
+
+// Función para mostrar el carrito
+function updateCart() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsContainer = document.querySelector('.cart-items');
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const cartItemDiv = document.createElement('div');
+        cartItemDiv.className = 'cart-item';
+        cartItemDiv.innerHTML = `
+            <p>${item.name} - $${item.price.toFixed(2)} x ${item.quantity} <button onclick="removeFromCart(${index})">X</button></p>
+        `;
+        cartItemsContainer.appendChild(cartItemDiv);
+        total += item.price * item.quantity;
+    });
+
+    document.getElementById('total').innerText = total.toFixed(2);
+}
+
+// Función para eliminar producto del carrito
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCart();
+}
+
+// Función para proceder al checkout
+function checkout() {
+    alert('Compra realizada');
+    localStorage.removeItem('cart');
+    updateCart();
+}
+
+// Inicializar la página
+document.addEventListener('DOMContentLoaded', () => {
+    displayProducts();
+    updateCart();
+});
 
 

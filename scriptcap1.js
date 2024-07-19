@@ -46,5 +46,47 @@ function changePreview(image) {
     document.getElementById('preview').src = image.src;
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const totalElement = document.querySelector('#total');
 
+    function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let total = 0;
+
+        cartItemsContainer.innerHTML = '';
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('cart-item');
+            itemElement.innerHTML = `
+                <span>${item.name}</span>
+                <span>$${item.price.toFixed(2)} x ${item.quantity}</span>
+                <button class="remove-item" data-id="${item.id}">X</button>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+        });
+
+        totalElement.textContent = total.toFixed(2);
+
+        // Añadir eventos de eliminar producto
+        document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', function () {
+                removeFromCart(this.getAttribute('data-id'));
+            });
+        });
+    }
+
+    function removeFromCart(id) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart = cart.filter(item => item.id !== id);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart(); // Recargar el carrito
+    }
+
+    // Inicializar el carrito al cargar la página
+    loadCart();
+});
 

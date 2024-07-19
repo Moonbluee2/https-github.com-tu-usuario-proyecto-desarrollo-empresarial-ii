@@ -525,7 +525,7 @@ body {
 
 .container {
     width: 80%;
-    margin: auto;
+    margin: 5%;
     overflow: hidden;
 }
 
@@ -533,8 +533,8 @@ body {
     float: left;
     width: 45%;
     margin: 2.5%;
-    padding: 20px;
-    border: 1px solid #ccc;
+    padding: 10px;
+    border: 0px solid #ccc;
     box-shadow: 2px 2px 12px #aaa;
 }
 
@@ -543,8 +543,8 @@ body {
 }
 
 .product, .cart-item {
-    border-bottom: 1px solid #cccccc;
-    padding: 10px 0;
+    border-bottom: px solid #cccccc;
+    padding: 0px 0;
 }
 
 .product:last-child, .cart-item:last-child {

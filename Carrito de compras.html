@@ -59,29 +59,30 @@
 
     <!-- Carrito de compras -->
     <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Carrito de Compras</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Carrito de Compras</h1>
-            <div class="products">
-                <!-- Productos se cargarán aquí -->
-            </div>
-            <div class="cart">
-                <h2>Tu Carrito</h2>
-                <div class="cart-items">
-                    <!-- Items del carrito se cargarán aquí -->
-                </div>
-                <div class="cart-total">
-                    Total: $<span id="total">0.00</span>
-                </div>
-            </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos y Carrito</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Productos</h1>
+        <div class="products">
+            
         </div>
-        <script src="script.js"></script>
-    </body>
-    </html>
+        <div class="cart">
+            <h2>Tu Carrito</h2>
+            <div class="cart-items">
+                
+            </div>
+            <div class="cart-total">
+                Total: $<span id="total">0.00</span>
+            </div>
+            <button onclick="checkout()">Comprar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
