@@ -25,7 +25,7 @@ body {
 }
 
 body.dark {
-    --body-color: #18191A;
+    --body-color: #19191b;
     --nav-color: #242526;
     --side-nav: #242526;
     --text-color: #CCC;
@@ -455,12 +455,11 @@ body.dark .search-field i {
     margin-left: 5px;
 }
 
-
-
-
-
-
-
+/* Estilos del icono del usuario y carrito en modo oscuro */
+body.dark .user a i,
+body.dark .cart a i {
+    color: #CCC; /* Color en modo oscuro */
+}
 
 
 /*Card*/
@@ -525,7 +524,7 @@ body {
 
 .container {
     width: 80%;
-    margin: 5%;
+    margin: auto;
     overflow: hidden;
 }
 
@@ -533,8 +532,8 @@ body {
     float: left;
     width: 45%;
     margin: 2.5%;
-    padding: 10px;
-    border: 0px solid #ccc;
+    padding: 20px;
+    border: 1px solid #ccc;
     box-shadow: 2px 2px 12px #aaa;
 }
 
@@ -543,8 +542,8 @@ body {
 }
 
 .product, .cart-item {
-    border-bottom: px solid #cccccc;
-    padding: 0px 0;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 0;
 }
 
 .product:last-child, .cart-item:last-child {
