@@ -5,10 +5,11 @@ const body = document.querySelector("body"),
       sidebarOpen = document.querySelector(".sidebarOpen"),
       siderbarClose = document.querySelector(".siderbarClose");
 
-let getMode = localStorage.getItem("mode");
-if(getMode && getMode === "dark-mode"){
-    body.classList.add("dark");
-}
+// Verificar el modo guardado en localStorage y aplicar el tema correspondiente
+    const getMode = localStorage.getItem("mode");
+    if (getMode && getMode === "dark-mode") {
+        body.classList.add("dark");
+    }
 
 // Código para alternar entre modos oscuro y claro
 modeToggle.addEventListener("click", () => {
@@ -28,19 +29,31 @@ searchToggle.addEventListener("click", () => {
     searchToggle.classList.toggle("active");
 });
 
-// Código para alternar la barra lateral
-sidebarOpen.addEventListener("click", () => {
-    nav.classList.add("active");
-});
-
+// Cerrar la barra lateral al hacer clic fuera de ella
 body.addEventListener("click", e => {
-    let clickedElm = e.target;
-
-    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+    const clickedElm = e.target;
+    if (!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu") && !clickedElm.closest('.menu')) {
         nav.classList.remove("active");
     }
 });
 
+// Funcionalidad del buscador de productos
+const searchInput = document.getElementById('searchInput');
+const productContainer = document.getElementById('card-container');
+const cards = productContainer.getElementsByClassName('card');
 
+searchInput.addEventListener('input', function () {
+    const searchQuery = searchInput.value.toLowerCase();
+
+    Array.from(cards).forEach(card => {
+        const productName = card.getAttribute('data-title').toLowerCase();
+
+        if (productName.includes(searchQuery)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
 
 

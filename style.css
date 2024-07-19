@@ -290,6 +290,28 @@ body.dark .search-field i {
     color: var(--text-color);
 }
 
+/* contenedor de productos-buscador*/
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .card {
+    background-color: #333;
+    color: #ccc;
+}
+
 @media (max-width: 790px) {
     nav .nav-bar .sidebarOpen {
         display: block;
