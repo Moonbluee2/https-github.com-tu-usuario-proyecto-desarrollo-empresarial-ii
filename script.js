@@ -3,13 +3,14 @@ const body = document.querySelector("body"),
       modeToggle = document.querySelector(".dark-light"),
       searchToggle = document.querySelector(".searchToggle"),
       sidebarOpen = document.querySelector(".sidebarOpen"),
-      siderbarClose = document.querySelector(".siderbarClose");
+      siderbarClose = document.querySelector(".siderbarClose"),
+      searchInput = document.getElementById("searchInput"),
+      card = document.querySelectorAll(".card");
 
-// Verificar el modo guardado en localStorage y aplicar el tema correspondiente
-    const getMode = localStorage.getItem("mode");
-    if (getMode && getMode === "dark-mode") {
-        body.classList.add("dark");
-    }
+let getMode = localStorage.getItem("mode");
+if (getMode && getMode === "dark-mode") {
+    body.classList.add("dark");
+}
 
 // Código para alternar entre modos oscuro y claro
 modeToggle.addEventListener("click", () => {
@@ -17,7 +18,7 @@ modeToggle.addEventListener("click", () => {
     body.classList.toggle("dark");
 
     // Código para mantener el modo seleccionado por el usuario al recargar la página o reabrir el archivo
-    if(!body.classList.contains("dark")){
+    if (!body.classList.contains("dark")) {
         localStorage.setItem("mode", "light-mode");
     } else {
         localStorage.setItem("mode", "dark-mode");
@@ -29,32 +30,29 @@ searchToggle.addEventListener("click", () => {
     searchToggle.classList.toggle("active");
 });
 
-// Cerrar la barra lateral al hacer clic fuera de ella
+// Código para alternar la barra lateral
+sidebarOpen.addEventListener("click", () => {
+    nav.classList.add("active");
+});
+
 body.addEventListener("click", e => {
-    const clickedElm = e.target;
-    if (!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu") && !clickedElm.closest('.menu')) {
+    let clickedElm = e.target;
+
+    if (!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")) {
         nav.classList.remove("active");
     }
 });
 
-// Funcionalidad del buscador de productos
-const searchInput = document.getElementById('searchInput');
-const productContainer = document.getElementById('card-container');
-const cards = productContainer.getElementsByClassName('card');
-
-searchInput.addEventListener('input', function () {
-    const searchQuery = searchInput.value.toLowerCase();
-
-    Array.from(cards).forEach(card => {
-        const productName = card.getAttribute('data-title').toLowerCase();
-
-        if (productName.includes(searchQuery)) {
-            card.style.display = 'block';
+// Función para el buscador
+searchInput.addEventListener("input", () => {
+    const searchValue = searchInput.value.toLowerCase();
+    card.forEach(card => {
+        const title = card.getAttribute("data-title").toLowerCase();
+        if (title.includes(searchValue)) {
+            card.style.display = "";
         } else {
-            card.style.display = 'none';
+            card.style.display = "none";
         }
     });
 });
-
-
 

@@ -15,8 +15,12 @@
     --nav-color: #b6b6b6;
     --side-nav: #c0c5cc;
     --text-color: #000000;
-    --search-bar: #F2F2F2;
-    --search-text: #010718;
+    --search-bar-light: #f0f0f0;
+    --search-text-light: #333;
+    --search-bar-dark: #333;
+    --search-text-dark: #f0f0f0;
+    --search-bar: var(--search-bar-light);
+    --search-text: var(--search-text-light);
 }
 
 body {
@@ -29,7 +33,8 @@ body.dark {
     --nav-color: #242526;
     --side-nav: #242526;
     --text-color: #CCC;
-    --search-bar: #242526;
+    --search-bar: var(--search-bar-dark);
+    --search-text: var(--search-text-dark);
 }
 
 nav {
@@ -516,4 +521,13 @@ body.dark .cart a i {
 
 .card button:hover {
     background-color: #0056b3;
+}
+
+#noResults {
+    color: var(--no-results-color);
+    text-align: center;
+}
+
+.hidden {
+    display: none;
 }
