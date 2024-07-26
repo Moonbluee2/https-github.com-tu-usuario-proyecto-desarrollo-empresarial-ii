@@ -44,20 +44,14 @@ body.addEventListener("click", e => {
 });
 
 // Funcionalidad del buscador de productos
-const searchInput = document.getElementById('searchInput');
-const productContainer = document.getElementById('card-container');
-const cards = productContainer.getElementsByClassName('card');
-
-searchInput.addEventListener('input', function () {
-    const searchQuery = searchInput.value.toLowerCase();
-
-    Array.from(cards).forEach(card => {
-        const productName = card.getAttribute('data-title').toLowerCase();
-
-        if (productName.includes(searchQuery)) {
-            card.style.display = 'block';
+searchInput.addEventListener("input", () => {
+    const searchValue = searchInput.value.toLowerCase();
+    card.forEach(card => {
+        const title = card.getAttribute("data-title").toLowerCase();
+        if (title.includes(searchValue)) {
+            card.style.display = "";
         } else {
-            card.style.display = 'none';
+            card.style.display = "none";
         }
     });
 });
