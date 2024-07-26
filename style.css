@@ -518,39 +518,74 @@ body.dark .cart a i {
     background-color: #0056b3;
 }
 /*Carrito de compras*/
-body {
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-.products, .cart {
-    float: left;
-    width: 45%;
-    margin: 2.5%;
+section.cart {
+    max-width: 800px; /* Ajusta el ancho  */
+    margin: 100px auto; /* Centra el contenedor horizontalmente y añade margen superior */
     padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 12px #aaa;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Opcional: centra el texto dentro del contenedor */
 }
 
-.products h2, .cart h2 {
-    margin-top: 0;
+.cart h1 {
+    margin-bottom: 20px;
 }
 
-.product, .cart-item {
-    border-bottom: 1px solid #cccccc;
-    padding: 10px 0;
+.cart-items {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Asegura que los productos se muestren uno debajo del otro */
 }
 
-.product:last-child, .cart-item:last-child {
-    border-bottom: none;
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    justify-content: space-between; /* Espacia el contenido del item */
 }
 
-.product button, .cart-item button {
-    float: right;
+.cart-item img {
+    width: 130px;
+    height: auto;
+    margin-right: 15px;
 }
 
+.item-info {
+    flex-grow: 1;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.remove-btn {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.cart-total h3 {
+    margin: 0;
+}
+
+#checkoutBtn {
+    background: #2ecc71;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#checkoutBtn:hover {
+    background: #27ae60;
+}

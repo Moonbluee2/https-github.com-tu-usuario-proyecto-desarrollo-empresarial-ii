@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- ===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <title>STRAWBERRY</title>
+    <script defer src="carrito.js"></script>
+    <title>Carrito de Compras</title>
 </head>
 <body>
     <nav>
@@ -56,33 +55,80 @@
         </div>
     </nav>
 
+    <section class="cart container">
+        <h1>Carrito de Compras</h1>
+        <div class="cart-items">
+            <!-- Los productos se agregarán dinámicamente aquí -->
+        </div>
+        <div class="cart-total">
+            <h3>Total: $<span id="total">0.00</span></h3>
+            <button id="checkoutBtn">Comprar</button>
+        </div>
+    </section>
 
-    <!-- Carrito de compras -->
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos y Carrito</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Productos</h1>
-        <div class="products">
-            
-        </div>
-        <div class="cart">
-            <h2>Carrito de Compras</h2>
-            <div class="cart-items">
-                
-            </div>
-            <div class="cart-total">
-                Total: $<span id="total">0.00</span>
-            </div>
-            <button onclick="checkout()">Comprar</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const totalElement = document.getElementById('total');
+
+            let total = 0;
+
+            // Un objeto para agrupar productos por ID
+            const productMap = {};
+
+            cart.forEach(item => {
+                if (productMap[item.id]) {
+                    productMap[item.id].quantity += item.quantity;
+                } else {
+                    productMap[item.id] = { ...item };
+                }
+            });
+
+            // Crear elementos HTML para cada producto en el mapa
+            Object.values(productMap).forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="cart-item-details">
+                        <h4>${item.title}</h4>
+                        <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+                        <button class="remove-btn" data-id="${item.id}">Eliminar</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+
+                total += item.price * item.quantity;
+            });
+
+            totalElement.textContent = total.toFixed(2);
+
+            document.querySelectorAll('.remove-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    const index = cart.findIndex(item => item.id === id);
+                    if (index > -1) {
+                        cart.splice(index, 1);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        location.reload();
+                    }
+                });
+            });
+
+            document.getElementById('checkoutBtn').addEventListener('click', () => {
+                if (cart.length > 0) {
+                    const confirmPurchase = confirm('¿Quieres comprar estos productos?');
+                    if (confirmPurchase) {
+                        alert('Gracias por tu compra.');
+                        localStorage.removeItem('cart');
+                        location.reload();
+                    }
+                } else {
+                    alert('Tu carrito está vacío.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

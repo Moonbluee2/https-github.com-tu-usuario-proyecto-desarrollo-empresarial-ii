@@ -89,4 +89,95 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicializar el carrito al cargar la página
     loadCart();
 });
+// Carrito de compras
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionar elementos
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const totalElement = document.getElementById('total');
 
+    // Obtener productos del carrito del localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    let total = 0;
+
+    // Limpiar el contenedor antes de agregar nuevos productos
+    cartItemsContainer.innerHTML = '';
+
+    // Agrupar productos similares y sumar la cantidad
+    const productGroups = cart.reduce((acc, item) => {
+        if (!acc[item.id]) {
+            acc[item.id] = { ...item };
+        } else {
+            acc[item.id].quantity += item.quantity;
+        }
+        return acc;
+    }, {});
+
+    // Mostrar productos en el carrito
+    Object.values(productGroups).forEach(item => {
+        if (typeof item.price === 'number' && !isNaN(item.price)) {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <img src="${item.image}" alt="${item.title}">
+                <div class="item-info">
+                    <h4>${item.title}</h4>
+                    <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+                    <button class="remove-btn" data-id="${item.id}">Eliminar</button>
+                </div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+
+            total += item.price * item.quantity;
+        } else {
+            console.error('Precio no definido o inválido para el producto:', item);
+        }
+    });
+
+    // Actualizar el total
+    totalElement.textContent = total.toFixed(2);
+
+    // Manejar el clic en el botón de eliminar
+    document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.getAttribute('data-id');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const updatedCart = cart.filter(item => item.id !== id);
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+            location.reload(); // Recarga la página para actualizar el carrito
+        });
+    });
+
+    // Manejar el clic en el botón de comprar
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+        const confirmPurchase = confirm('¿Quieres comprar estos productos?');
+        if (confirmPurchase) {
+            alert('Gracias por tu compra.');
+            localStorage.removeItem('cart');
+            location.reload(); // Recarga la página para limpiar el carrito
+        }
+    });
+});
+
+// Agregar productos al carrito (esto va en la página de productos)
+document.querySelectorAll('.agregar-carrito').forEach(button => {
+    button.addEventListener('click', () => {
+        const id = button.getAttribute('data-id');
+        const name = button.getAttribute('data-name');
+        const price = parseFloat(button.getAttribute('data-price'));
+        const image = button.getAttribute('data-image');
+
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const existingProductIndex = cart.findIndex(item => item.id === id);
+
+        if (existingProductIndex > -1) {
+            cart[existingProductIndex].quantity += 1;
+        } else {
+            cart.push({ id, title: name, price, image, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Producto agregado al carrito');
+    });
+});
