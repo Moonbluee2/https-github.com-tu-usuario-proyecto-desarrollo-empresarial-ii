@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style INICIO2.css">
+    <script defer src="script.js"></script>
+    <script defer src="scripttt.js"></script> 
+
+    <!-- ===== Boxicons CSS ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>STRAWBERRY</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background-color: #f1f1f1;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        }
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <span class="logo navLogo">
+                <a href="INICIO.html"><img src="images/LOGO STRAW2.png" alt="LOGO EN FORMA DE FRESA" class="logo-image"></a>
+            </span>
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="INICIO.html">STRAWBERRY</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="INICIO.html">Inicio</a></li>
+                    <li><a href="INICIO.html">Catálogo</a></li>
+                    <li><a href="#">Marcas</a>
+                        <ul class="submenu">
+                            <li><a href="5.7 CLOTHING.html">1IRONTRENDY</a></li>
+                            <li><a href="#">5.7 CLOTHING</a></li>
+                            <li><a href="#">ACE HATS</a></li>
+                            <li><a href="#">CAPS COMPANY</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="header-container">
+                <div class="cart-user-container">
+                    <div class="darkLight-searchBox">
+                        <div class="dark-light">
+                            <i class='bx bx-moon moon'></i>
+                            <i class='bx bx-sun sun'></i>
+                        </div>
+                        <div class="searchBox">
+                            <div class="searchToggle">
+                                <i class='bx bx-x cancel'></i>
+                                <i class='bx bx-search search'></i>
+                            </div>
+                            <div class="search-field">
+                                <input type="text" id="searchInput" placeholder="Search...">
+                                <i class='bx bx-search'></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <a href="INICIO Y REGISTRO.html"><i class='bx bx-user-circle'></i></a>
+                    </div>
+
+                    <div class="cart">
+                        <a href="Carrito de compras.html"><i class='bx bx-cart'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Contenedor de tarjetas -->
+    <div class="card-container">
+        <div class="card" data-title="DURANYORK EE BLACK">
+            <img src="images/DURANYORK EE BLACK.png" alt="Imagen de producto">
+            <div class="card-content">
+                <h2>DURANYORK EE BLACK</h2>
+                <p>$ 800.00</p>
+                <a href="InfoCap12.html">
+                    <button>Comprar Ahora</button>
+                </a>
+            </div>
+        </div>
+    
+    <div class="card-container">
+            <div class="card" data-title="MANCHA DGO KHAKI">
+                <img src="images/MANCHA DGO KHAKI.png" alt="Imagen de producto">
+                <div class="card-content">
+                    <h2>MANCHA DGO KHAKI</h2>
+                    <p>$ 750.00</p>
+                    <a href="InfoCap13.html">
+                        <button>Comprar Ahora</button>
+                    </a>
+                </div>
+            </div>   
+      
+    
+    <div class="card-container">
+                <div class="card" data-title="MANCHA SIN">
+                    <img src="images/MANCHA SIN.png" alt="Imagen de producto">
+                    <div class="card-content">
+                        <h2>MANCHA SIN</h2>
+                        <p>$ 750.00</p>
+                        <a href="InfoCap14.html">
+                            <button>Comprar Ahora</button>
+                        </a>
+                    </div>
+                </div>
+    <div class="card-container">
+                    <div class="card" data-title="EL REY DEL CORRIDO CURVE">
+                        <img src="images/EL REY DEL CORRIDO CURVE.png" alt="Imagen de producto">
+                        <div class="card-content">
+                            <h2>EL REY DEL CORRIDO CURVE</h2>
+                            <p>$ 800.00</p>
+                            <a href="InfoCap10.html">
+                                <button>Comprar Ahora</button>
+                            </a>
+                        </div>
+                    </div>          
+    
+        <!-- Añade más cards según sea necesario -->
+    </div>
+
+    <div class="pagination">
+        <a href="INICIO2.html">&laquo;</a>
+        <a href="INICIO.html">1</a>
+        <a href="INICIO2.html">2</a>
+        <a href="INICIO3.html">3</a>
+        <a href="INICIO3.html">&raquo;</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
