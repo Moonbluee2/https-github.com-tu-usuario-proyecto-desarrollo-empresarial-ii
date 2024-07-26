@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylecap1.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>STRAWBERRY-CAPINFO-#15</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <span class="logo navLogo"><a href="INICIO.html"><img src="images/LOGO STRAW2.png" alt="LOGO EN FORMA DE FRESA" class="logo-image"></a></span>
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="INICIO.html">STRAWBERRY</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="INICIO.html">Inicio</a></li>
+                    <li><a href="INICIO.html">Catálogo</a></li>
+                    <li><a href="#">Marcas</a></li>
+                </ul>
+            </div>
+            <div class="header-container">
+                <div class="cart-user-container">
+                    <div class="darkLight-searchBox">
+                        <div class="dark-light">
+                            <i class='bx bx-moon moon'></i>
+                            <i class='bx bx-sun sun'></i>
+                        </div>
+                        <div class="searchBox">
+                            <div class="searchToggle">
+                                <i class='bx bx-x cancel'></i>
+                                <i class='bx bx-search search'></i>
+                            </div>
+                            <div class="search-field">
+                                <input type="text" placeholder="Search...">
+                                <i class='bx bx-search'></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <a href="INICIO Y REGISTRO.html"><i class='bx bx-user-circle'></i></a>
+                    </div>
+                    <div class="cart">
+                        <a href="#"><i class='bx bx-cart'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="gallery container">
+        <div class="gallery-list">
+            <img src="images/ELEGUA BLACK RED.png" alt="Image 1" class="gallery-item" onclick="changePreview(this)">
+            <img src="images/ELEGUA BLACK RED LEFT.png" alt="Image 2" class="gallery-item" onclick="changePreview(this)">
+            <img src="images/ELEGUA BLACK RED RIGHT.png" alt="Image 3" class="gallery-item" onclick="changePreview(this)">
+
+        </div>
+        <div class="gallery-preview">
+            <img src="images/ELEGUA BLACK RED.png" alt="Preview Image" class="preview-item" id="preview">
+        </div>
+        <div class="perfume-info">
+            <h2>MANCHA JAL</h2>
+            <h3>Detalle de producto</h3>
+            <ul class="product-details">
+                <li><strong>Marca:</strong>EL REY COUSTOME</li>
+                <li><strong>Gorra tipo:</strong> snapback</li>
+                <li><strong>Familia o colección:</strong>EL REY COUSTOME</li>
+                <li><strong>Tipo De Visera:</strong>Visera plana</li>
+                <li><strong>Talla:</strong>Unitalla</li>
+                <li><strong>Ajustable:</strong>Ajustable con broche</li>
+                <li><strong>Sugerido para:</strong> Hombre /Unisex</li>
+            </ul>
+            <p>Precio:$ $ 550.00</p>
+            <button id="addToCartBtn" class="agregar-carrito" data-id="1">Agregar al carrito</button>
+        </div>
+    </section>
+
+    <script src="scriptcap1.js"></script>
+</body>
+</html>

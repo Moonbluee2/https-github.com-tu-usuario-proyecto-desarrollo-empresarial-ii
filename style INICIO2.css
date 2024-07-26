@@ -353,17 +353,7 @@ body.dark .search-field i {
 }
 
 
-/* Imagen Principal */
-.styled-image { 
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    border: 1px solid #000;
-    border-radius: 0px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    display: block; /* Asegura que la imagen se trata como un bloque */
-    margin: 170px auto; /* Centrado y espaciado alrededor de la imagen */
-}
+
 
 
 /* Contenedor principal derecho*/
@@ -471,10 +461,11 @@ body.dark .cart a i {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 35px;
     justify-content: center;
-    margin-top: 55px;
+    margin-top: 100px; 
 }
+
 
 .card {
     background-color: white;
@@ -522,75 +513,12 @@ body.dark .cart a i {
 .card button:hover {
     background-color: #0056b3;
 }
-/*Carrito de compras*/
-section.cart {
-    max-width: 800px; /* Ajusta el ancho  */
-    margin: 100px auto; /* Centra el contenedor horizontalmente y añade margen superior */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Opcional: centra el texto dentro del contenedor */
+
+#noResults {
+    color: var(--no-results-color);
+    text-align: center;
 }
 
-.cart h1 {
-    margin-bottom: 20px;
-}
-
-.cart-items {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column; /* Asegura que los productos se muestren uno debajo del otro */
-}
-
-.cart-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    justify-content: space-between; /* Espacia el contenido del item */
-}
-
-.cart-item img {
-    width: 130px;
-    height: auto;
-    margin-right: 15px;
-}
-
-.item-info {
-    flex-grow: 1;
-    text-align: left; /* Alinea el texto a la izquierda */
-}
-
-.remove-btn {
-    background: #e74c3c;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-}
-
-.cart-total h3 {
-    margin: 0;
-}
-
-#checkoutBtn {
-    background: #2ecc71;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#checkoutBtn:hover {
-    background: #27ae60;
+.hidden {
+    display: none;
 }
