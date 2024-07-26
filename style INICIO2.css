@@ -353,17 +353,7 @@ body.dark .search-field i {
 }
 
 
-/* Imagen Principal */
-.styled-image { 
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    border: 1px solid #000;
-    border-radius: 0px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    display: block; /* Asegura que la imagen se trata como un bloque */
-    margin: 170px auto; /* Centrado y espaciado alrededor de la imagen */
-}
+
 
 
 /* Contenedor principal derecho*/
@@ -471,10 +461,11 @@ body.dark .cart a i {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 35px;
     justify-content: center;
-    margin-top: 55px;
+    margin-top: 100px; 
 }
+
 
 .card {
     background-color: white;
