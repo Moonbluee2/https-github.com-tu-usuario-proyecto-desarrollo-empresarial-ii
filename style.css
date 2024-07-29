@@ -426,6 +426,10 @@ body.dark .search-field i {
     margin-left: 5px;
 }
 
+#searchResults {
+    margin: 10px 0;
+}
+
 /* User */
 .user {
     margin-left: 10px;
@@ -522,6 +526,16 @@ body.dark .cart a i {
 .card button:hover {
     background-color: #0056b3;
 }
+
+#productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 55px;
+    transition: opacity 0.3s ease; /* Transición para suavizar el cambio de visibilidad */
+}
+
 /*Carrito de compras*/
 section.cart {
     max-width: 800px; /* Ajusta el ancho  */
