@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style INICIO2.css" />
+    <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
     <script defer src="scripttt.js"></script>
 
@@ -58,59 +58,7 @@
     </style>
   </head>
   <body>
-    <nav>
-<<<<<<< HEAD
-        <div class="nav-bar">
-            <i class='bx bx-menu sidebarOpen'></i>
-            <span class="logo navLogo"><a href="INICIO.html"><img src="images/LOGO STRAW2.png" alt="LOGO EN FORMA DE FRESA" class="logo-image"></a></span>
-            <div class="menu">
-                <div class="logo-toggle">
-                    <span class="logo"><a href="INICIO.html">STRAWBERRY</a></span>
-                    <i class='bx bx-x siderbarClose'></i>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="INICIO.html">Inicio</a></li>
-                    <li><a href="INICIO.html">Catálogo</a></li>
-                    <li><a href="#">Marcas</a>
-                        <ul class="submenu">
-                            <li><a href="1IRONTRENDY.html">1IRONTRENDY</a></li>
-                            <li><a href="#">5.7 CLOTHING</a></li>
-                            <li><a href="#">ACE HATS</a></li>
-                            <li><a href="#">CAPS COMPANY</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="header-container">
-                <div class="cart-user-container">
-                    <div class="darkLight-searchBox">
-                        <div class="dark-light">
-                            <i class='bx bx-moon moon'></i>
-                            <i class='bx bx-sun sun'></i>
-                        </div>
-                        <div class="searchBox">
-                            <div class="searchToggle">
-                                <i class='bx bx-x cancel'></i>
-                                <i class='bx bx-search search'></i>
-                            </div>
-                            <div class="search-field">
-                                <input type="text" id="searchInput"placeholder="Search...">
-                                <i class='bx bx-search'></i>
-                                <div id="searchResults" class="search-results"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <a href="INICIO Y REGISTRO.html"><i class='bx bx-user-circle'></i></a>
-                    </div>
-
-                    <div class="cart">
-                        <a href="Carrito de compras.html"><i class='bx bx-cart'></i></a>
-                    </div>
-                </div>
-            </div>
-=======
+    <nav>  
       <div class="nav-bar">
         <i class="bx bx-menu sidebarOpen"></i>
         <span class="logo navLogo"
@@ -138,7 +86,6 @@
               </ul>
             </li>
           </ul>
->>>>>>> 071a74eca06a6f1c47214889fe5d5bbf85a525ff
         </div>
 
         <div class="header-container">
@@ -174,98 +121,102 @@
     </nav>
 
     <!-- Contenedor de tarjetas -->
-    <div id="searchResults"></div>
-    <div class="card-container">
-      <div class="card" data-title="POKER GOLD">
-        <img src="images/POKER GOLD.png" alt="Imagen de producto" />
-        <div class="card-content">
-          <h2>POKER GOLD</h2>
-          <p>$ 850.00</p>
-          <a href="InfoCap5.html">
-            <button>Comprar Ahora</button>
-          </a>
+    <div id="productContainer">
+        <div class="card-row">
+            <div class="card-container">
+            <div class="card" data-title="POKER GOLD">
+                <img src="images/POKER GOLD.png" alt="Imagen de producto" />
+                <div class="card-content">
+                <h2>POKER GOLD</h2>
+                <p>$ 850.00</p>
+                <a href="InfoCap5.html">
+                    <button>Comprar Ahora</button>
+                </a>
+                </div>
+            </div>
+            <div class="card" data-title="EL REY DEL CORRIDO CURVE">
+                <img
+                src="images/EL REY DEL CORRIDO CURVE.png"
+                alt="Imagen de producto"
+                />
+                <div class="card-content">
+                <h2>EL REY DEL CORRIDO CURVE</h2>
+                <p>$ 800.00</p>
+                <a href="InfoCap10.html">
+                    <button>Comprar Ahora</button>
+                </a>
+                </div>
+            </div>
+            <div class="card" data-title="MAYO-R LEAGUE">
+                <img src="images/MAYO-R LEAGUE.png" alt="Imagen de producto" />
+                <div class="card-content">
+                <h2>MAYO-R LEAGUE</h2>
+                <p>$ 850.00</p>
+                <a href="InfoCap11.html">
+                    <button>Comprar Ahora</button>
+                </a>
+                </div>
+            </div>
+            <div class="card" data-title="DURANYORK EE BLACK">
+                <img src="images/DURANYORK EE BLACK.png" alt="Imagen de producto" />
+                <div class="card-content">
+                <h2>DURANYORK EE BLACK</h2>
+                <p>$ 800.00</p>
+                <a href="InfoCap12.html">
+                    <button>Comprar Ahora</button>
+                </a>
+                </div>
+            </div>
+            <!-- Añade más cards según sea necesario -->
+            </div>
         </div>
-      </div>
-      <div class="card" data-title="EL REY DEL CORRIDO CURVE">
-        <img
-          src="images/EL REY DEL CORRIDO CURVE.png"
-          alt="Imagen de producto"
-        />
-        <div class="card-content">
-          <h2>EL REY DEL CORRIDO CURVE</h2>
-          <p>$ 800.00</p>
-          <a href="InfoCap10.html">
-            <button>Comprar Ahora</button>
-          </a>
-        </div>
-      </div>
-      <div class="card" data-title="MAYO-R LEAGUE">
-        <img src="images/MAYO-R LEAGUE.png" alt="Imagen de producto" />
-        <div class="card-content">
-          <h2>MAYO-R LEAGUE</h2>
-          <p>$ 850.00</p>
-          <a href="InfoCap11.html">
-            <button>Comprar Ahora</button>
-          </a>
-        </div>
-      </div>
-      <div class="card" data-title="DURANYORK EE BLACK">
-        <img src="images/DURANYORK EE BLACK.png" alt="Imagen de producto" />
-        <div class="card-content">
-          <h2>DURANYORK EE BLACK</h2>
-          <p>$ 800.00</p>
-          <a href="InfoCap12.html">
-            <button>Comprar Ahora</button>
-          </a>
-        </div>
-      </div>
-      <!-- Añade más cards según sea necesario -->
-    </div>
 
-    <div id="searchResults"></div>
-    <div class="card-container">
-      <div class="card" data-title="MANCHA DGO KHAKI">
-        <img src="images/MANCHA DGO KHAKI.png" alt="Imagen de producto" />
-        <div class="card-content">
-          <h2>MANCHA DGO KHAKI</h2>
-          <p>$ 750.00</p>
-          <a href="InfoCap13.html">
-            <button>Comprar Ahora</button>
-          </a>
-        </div>
-      </div>
-      <div class="card" data-title="MANCHA SIN">
-        <img src="images/MANCHA SIN.png" alt="Imagen de producto" />
-        <div class="card-content">
-          <h2>MANCHA SIN</h2>
-          <p>$ 750.00</p>
-          <a href="InfoCap14.html">
-            <button>Comprar Ahora</button>
-          </a>
-        </div>
-      </div>
+        <div class="card-row">
+            <div class="card-container">
+            <div class="card" data-title="MANCHA DGO KHAKI">
+                <img src="images/MANCHA DGO KHAKI.png" alt="Imagen de producto" />
+                <div class="card-content">
+                <h2>MANCHA DGO KHAKI</h2>
+                <p>$ 750.00</p>
+                <a href="InfoCap13.html">
+                    <button>Comprar Ahora</button>
+                </a>
+                </div>
+            </div>
+            <div class="card" data-title="MANCHA SIN">
+                <img src="images/MANCHA SIN.png" alt="Imagen de producto" />
+                <div class="card-content">
+                <h2>MANCHA SIN</h2>
+                <p>$ 750.00</p>
+                <a href="InfoCap14.html">
+                    <button>Comprar Ahora</button>
+                </a>
+                </div>
+            </div>
 
-      <div class="card" data-title="LA PANTERA BLACK">
-        <img src="images/LA PANTERA BLACK.png" alt="Imagen de producto" />
-        <div class="card-content">
-          <h2>LA PANTERA BLACK</h2>
-          <p>$ 950.00</p>
-          <a href="InfoCap16.html">
-            <button>Comprar Ahora</button>
-          </a>
+            <div class="card" data-title="LA PANTERA BLACK">
+                <img src="images/LA PANTERA BLACK.png" alt="Imagen de producto" />
+                <div class="card-content">
+                <h2>LA PANTERA BLACK</h2>
+                <p>$ 950.00</p>
+                <a href="InfoCap16.html">
+                    <button>Comprar Ahora</button>
+                </a>
+                </div>
+            </div>
+            <div class="card" data-title="ELEGUA BLACK/RED">
+                <img src="images/ELEGUA BLACK RED.png" alt="Imagen de producto" />
+                <div class="card-content">
+                <h2>ELEGUA BLACK/RED</h2>
+                <p>$ 800.00</p>
+                <a href="InfoCap17.html">
+                    <button>Comprar Ahora</button>
+                </a>
+                </div>
+            </div>
+            <!-- Añade más cards según sea necesario -->
+            </div>
         </div>
-      </div>
-      <div class="card" data-title="ELEGUA BLACK/RED">
-        <img src="images/ELEGUA BLACK RED.png" alt="Imagen de producto" />
-        <div class="card-content">
-          <h2>ELEGUA BLACK/RED</h2>
-          <p>$ 800.00</p>
-          <a href="InfoCap17.html">
-            <button>Comprar Ahora</button>
-          </a>
-        </div>
-      </div>
-      <!-- Añade más cards según sea necesario -->
     </div>
 
     <div class="pagination">

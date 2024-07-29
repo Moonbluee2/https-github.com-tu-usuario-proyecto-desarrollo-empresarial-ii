@@ -490,6 +490,14 @@ body.dark .cart a i {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para transformar y sombra */
 }
 
+.card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    margin-bottom: 20px; /* Espacio inferior entre filas de tarjetas */
+}
+
 .card:hover {
     transform: translateY(-5px); /* Mueve la tarjeta hacia arriba cuando se pasa el cursor */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9); /* Aumenta la sombra */
