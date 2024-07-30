@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(text => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(text, 'text/html');
-                const cards = doc.querySelectorAll('.card');
+                const card = doc.querySelectorAll('.card');
 
-                cards.forEach(card => {
+                card.forEach(card => {
                     products.push({
                         title: card.getAttribute('data-title'),
                         description: card.querySelector('p').textContent,
@@ -70,13 +70,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Cargar productos de todas las páginas
     Promise.all(pages.map(loadProductsFromPage)).then(() => {
-        searchInput.addEventListener("input", function() {
-            const filter = searchInput.value.toLowerCase();
+        function renderProducts(productsToRender) {
             productContainer.innerHTML = ''; // Limpia los resultados previos
 
-            if (filter === '') {
-                // Si el campo de búsqueda está vacío, muestra todas las tarjetas
-                products.forEach(product => {
+            if (productsToRender.length === 0) {
+                productContainer.innerHTML = '<p>No se encontraron productos.</p>';
+            } else {
+                productsToRender.forEach(product => {
                     const card = document.createElement("div");
                     card.className = "card";
                     card.setAttribute("data-title", product.title);
@@ -90,28 +90,28 @@ document.addEventListener("DOMContentLoaded", function() {
                     `;
                     productContainer.appendChild(card);
                 });
+            }
+        }
+
+        // Obtener la página actual
+        const currentPage = window.location.pathname.split('/').pop();
+
+        // Filtrar productos para la página actual
+        const currentProducts = products.filter(product => product.page.includes(currentPage));
+
+        // Mostrar productos de la página actual inicialmente
+        renderProducts(currentProducts);
+
+        searchInput.addEventListener("input", function() {
+            const filter = searchInput.value.toLowerCase();
+
+            if (filter === '') {
+                // Si el campo de búsqueda está vacío, muestra solo las tarjetas de la página actual
+                renderProducts(currentProducts);
             } else {
                 // Si hay un filtro, muestra solo las tarjetas que coinciden
                 const filteredProducts = products.filter(product => product.title.toLowerCase().includes(filter));
-
-                filteredProducts.forEach(product => {
-                    const card = document.createElement("div");
-                    card.className = "card";
-                    card.setAttribute("data-title", product.title);
-                    card.innerHTML = `
-                        <img src="${product.image}" alt="${product.title}">
-                        <div class="card-content">
-                            <h2>${product.title}</h2>
-                            <p>${product.description}</p>
-                            <a href="${product.page}"><button>Comprar ahora</button></a>
-                        </div>
-                    `;
-                    productContainer.appendChild(card);
-                });
-
-                if (productContainer.innerHTML === '') {
-                    productContainer.innerHTML = '<p>No se encontraron productos.</p>';
-                }
+                renderProducts(filteredProducts);
             }
         });
     }).catch(error => {
