@@ -544,9 +544,9 @@ body.dark .cart a i {
     transition: opacity 0.3s ease; /* Transición para suavizar el cambio de visibilidad */
 }
 
-/*Carrito de compras*/
+/* Carrito de compras */
 section.cart {
-    max-width: 800px; /* Ajusta el ancho  */
+    max-width: 800px; /* Ajusta el ancho */
     margin: 100px auto; /* Centra el contenedor horizontalmente y añade margen superior */
     padding: 20px;
     background-color: #fff;
@@ -593,6 +593,7 @@ section.cart {
     cursor: pointer;
 }
 
+/* Estilos para el total del carrito */
 .cart-total {
     display: flex;
     justify-content: space-between;
@@ -611,8 +612,66 @@ section.cart {
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 20px; /* Añadir margen superior para separar del total */
 }
 
 #checkoutBtn:hover {
     background: #27ae60;
+}
+
+/* Estilos para el recibo */
+#recibo {
+    display: none; /* Ocultar el recibo inicialmente */
+    width: 80%; /* Ajusta el ancho según sea necesario */
+    max-width: 800px; /* Ancho máximo del recibo */
+    margin: 20px auto; /* Centra el recibo horizontalmente */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#recibo h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#recibo table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#recibo th, #recibo td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#recibo th {
+    background-color: #f4f4f4;
+}
+
+#recibo .total {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Estilos para el botón de descarga del recibo */
+#downloadReceipt {
+    display: none; /* Ocultar el botón inicialmente */
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#downloadReceipt:hover {
+    background: #2980b9;
 }

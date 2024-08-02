@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="stylecap1.css">
+    <style>
+        /* Estilos específicos para el carrito de compras */
+        section.cart {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .cart h1 {
+            margin-bottom: 20px;
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            justify-content: space-between;
+        }
+
+        .cart-item img {
+            width: 130px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .item-info {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .remove-btn {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .cart-total h3 {
+            margin: 0;
+        }
+
+        #checkoutBtn {
+            background: #2ecc71;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #checkoutBtn:hover {
+            background: #27ae60;
+        }
+
+        /* Estilos para el recibo */
+        #recibo {
+            display: none;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #recibo h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #recibo table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        #recibo th, #recibo td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #recibo th {
+            background-color: #f4f4f4;
+        }
+
+        #recibo .total {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        /* Estilos para el botón de descarga del recibo */
+        #downloadReceipt {
+            display: none;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #downloadReceipt:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <section class="cart">
+        <h1>Tu Carrito</h1>
+        <div class="cart-items"></div>
+        <div class="cart-total">
+            <h3>Total: $<span id="total">0.00</span></h3>
+            <button id="checkoutBtn">Comprar</button>
+        </div>
+        <div id="recibo">
+            <h2>Recibo de Compra</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="recibo-items"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" class="total">Total:</td>
+                        <td id="recibo-total" class="total">$0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <p>Fecha: <span id="fecha"></span></p>
+            <button id="downloadReceipt">Descargar Recibo</button>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="scriptcap1.js"></script>
+</body>
+</html>

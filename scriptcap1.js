@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadCart();
 });
 // Carrito de compras
+// Carrito de compras
 document.addEventListener('DOMContentLoaded', () => {
     // Seleccionar elementos
     const cartItemsContainer = document.querySelector('.cart-items');
