@@ -1,3 +1,4 @@
+// Selección de elementos del DOM
 const body = document.querySelector("body"),
       nav = document.querySelector("nav"),
       modeToggle = document.querySelector(".dark-light"),
@@ -11,6 +12,7 @@ const body = document.querySelector("body"),
 const getMode = localStorage.getItem("mode");
 if (getMode && getMode === "dark-mode") {
     body.classList.add("dark");
+    modeToggle.classList.add("active");
 }
 
 // Código para alternar entre modos oscuro y claro
@@ -29,6 +31,7 @@ modeToggle.addEventListener("click", () => {
 // Código para la funcionalidad de la barra de búsqueda
 searchToggle.addEventListener("click", () => {
     searchToggle.classList.toggle("active");
+    // Opcional: Mostrar/ocultar el campo de búsqueda aquí si es necesario
 });
 
 // Código para alternar la barra lateral
@@ -36,6 +39,11 @@ sidebarOpen.addEventListener("click", () => {
     nav.classList.add("active");
 });
 
+sidebarClose.addEventListener("click", () => {
+    nav.classList.remove("active");
+});
+
+// Cerrar la barra lateral si se hace clic fuera de ella
 body.addEventListener("click", e => {
     const clickedElm = e.target;
     if (!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu") && !clickedElm.closest('.menu')) {
