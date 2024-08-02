@@ -117,10 +117,6 @@ nav .nav-bar .logo a {
     transition: all 0.3s ease;
 }
 
-.nav-links li:hover a::before {
-    opacity: 1;
-}
-
 .nav-links li a.login-link {
     display: flex;
     align-items: center;

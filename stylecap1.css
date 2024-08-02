@@ -84,8 +84,9 @@ nav .nav-bar .logo a {
 }
 
 .nav-bar .nav-links li {
-    margin: 0 px;
+    margin: 0 10px;
     list-style: none;
+    position: relative;
 }
 
 .nav-links li a {
@@ -111,10 +112,6 @@ nav .nav-bar .logo a {
     transition: all 0.3s ease;
 }
 
-.nav-links li:hover a::before {
-    opacity: 1;
-}
-
 .nav-links li a.login-link {
     display: flex;
     align-items: center;
@@ -126,6 +123,47 @@ nav .nav-bar .logo a {
     height: 30px;
 }
 
+/* submenu*/
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--nav-color);
+    min-width: 200px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: var(--text-color);
+    white-space: nowrap;
+    transition: all 0.3s ease-in-out;
+}
+
+.submenu li a:hover {
+    background-color: #555; 
+    color: #fff; 
+    transform: translateX(2px); 
+}
+
+.nav-links li:hover .submenu {
+    display: block;
+    align-items: center;
+}
+
+/* SearchBox */
 .nav-bar .darkLight-searchBox {
     display: flex;
     align-items: center;
