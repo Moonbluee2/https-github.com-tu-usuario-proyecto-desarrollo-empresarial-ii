@@ -545,6 +545,15 @@ body.dark .cart a i {
 }
 
 /* Carrito de compras */
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Estilos para la sección del carrito */
 section.cart {
     max-width: 800px; /* Ajusta el ancho */
     margin: 100px auto; /* Centra el contenedor horizontalmente y añade margen superior */
@@ -555,45 +564,59 @@ section.cart {
     text-align: center; /* Opcional: centra el texto dentro del contenedor */
 }
 
+/* Títulos del carrito */
 .cart h1 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
 }
 
+/* Contenedor de los artículos del carrito */
 .cart-items {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column; /* Asegura que los productos se muestren uno debajo del otro */
 }
 
+/* Elemento del artículo del carrito */
 .cart-item {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     border-bottom: 1px solid #ddd;
     justify-content: space-between; /* Espacia el contenido del item */
 }
 
+/* Imagen del artículo del carrito */
 .cart-item img {
-    width: 130px;
+    width: 150px; /* Aumentar el tamaño de la imagen */
     height: auto;
-    margin-right: 15px;
+    margin-right: 20px;
+    border-radius: 5px;
 }
 
+/* Información del artículo */
 .item-info {
     flex-grow: 1;
     text-align: left; /* Alinea el texto a la izquierda */
 }
 
+/* Botón de eliminar artículo */
 .remove-btn {
     background: #e74c3c;
     color: #fff;
     border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
 }
 
-/* Estilos para el total del carrito */
+.remove-btn:hover {
+    background: #c0392b;
+}
+
+/* Total del carrito */
 .cart-total {
     display: flex;
     justify-content: space-between;
@@ -601,77 +624,116 @@ section.cart {
     padding-top: 20px;
 }
 
+/* Título del total */
 .cart-total h3 {
     margin: 0;
+    font-size: 20px;
+    color: #333;
 }
 
+/* Botón de comprar */
 #checkoutBtn {
     background: #2ecc71;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 12px 25px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px; /* Añadir margen superior para separar del total */
+    margin-top: 30px; /* Añadir margen superior para separar del total */
+    font-size: 16px;
 }
 
 #checkoutBtn:hover {
     background: #27ae60;
 }
 
-/* Estilos para el recibo */
-#recibo {
-    display: none; /* Ocultar el recibo inicialmente */
-    width: 80%; /* Ajusta el ancho según sea necesario */
-    max-width: 800px; /* Ancho máximo del recibo */
-    margin: 20px auto; /* Centra el recibo horizontalmente */
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#recibo h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#recibo table {
+/* Estilos para los modales */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
-    border-collapse: collapse;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-content h2 {
     margin-bottom: 20px;
 }
 
-#recibo th, #recibo td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-#recibo th {
-    background-color: #f4f4f4;
-}
-
-#recibo .total {
-    text-align: right;
-    font-weight: bold;
-}
-
-/* Estilos para el botón de descarga del recibo */
-#downloadReceipt {
-    display: none; /* Ocultar el botón inicialmente */
-    background: #3498db;
-    color: #fff;
-    border: none;
+.modal-content button {
+    margin: 10px;
     padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
-    margin: 20px auto;
+    cursor: pointer;
+}
+
+#confirmPurchaseBtn {
+    background: #2ecc71;
+    color: #fff;
+}
+
+#cancelPurchaseBtn {
+    background: #e74c3c;
+    color: #fff;
+}
+
+#downloadReceiptBtn {
+    background: #007bff;
+    color: #fff;
+}
+
+#confirmPurchaseBtn:hover {
+    background: #27ae60;
+}
+
+#cancelPurchaseBtn:hover {
+    background: #c0392b;
+}
+
+#downloadReceiptBtn:hover {
+    background: #0056b3;
+}
+
+#closeReceiptModalBtn {
+    background: #999;
+    color: #fff;
+}
+
+#closeReceiptModalBtn:hover {
+    background: #666;
+}
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
     text-align: center;
 }
-
-#downloadReceipt:hover {
-    background: #2980b9;
+.modal button {
+    margin: 5px;
 }

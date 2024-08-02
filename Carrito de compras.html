@@ -5,11 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-    <script defer src="carrito.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <title>Carrito de Compras</title>
-</head>
-<body>
     <nav>
         <div class="nav-bar">
             <i class='bx bx-menu sidebarOpen'></i>
@@ -64,62 +61,72 @@
         <div class="cart-total">
             <h3>Total: $<span id="total">0.00</span></h3>
             <button id="checkoutBtn">Comprar</button>
-            <button id="downloadReceipt" style="display: none;">Descargar Recibo en PDF</button>
         </div>
     </section>
 
-    <section id="recibo" style="display: none;">
-        <h1>Recibo de Compra</h1>
-        <p>Fecha: <span id="fecha"></span></p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                </tr>
-            </thead>
-            <tbody id="recibo-items">
-                <!-- Los productos del recibo se agregarán aquí -->
-            </tbody>
-        </table>
-        <p>Total: $<span id="recibo-total"></span></p>
-    </section>
+    <!-- Modal para confirmación de compra -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>¿Quieres comprar estos productos?</h2>
+            <button id="confirmPurchaseBtn">Sí, comprar</button>
+            <button id="cancelPurchaseBtn">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal para generación de recibo -->
+    <div id="receiptModal" class="modal">
+        <div class="modal-content">
+            <h2>Compra completada</h2>
+            <p>Tu compra ha sido realizada con éxito. ¿Deseas descargar el recibo?</p>
+            <button id="downloadReceiptBtn">Descargar recibo</button>
+            <button id="closeReceiptModalBtn">Cerrar</button>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const cartItemsContainer = document.querySelector('.cart-items');
             const totalElement = document.getElementById('total');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const receiptModal = document.getElementById('receiptModal');
+            const confirmPurchaseBtn = document.getElementById('confirmPurchaseBtn');
+            const cancelPurchaseBtn = document.getElementById('cancelPurchaseBtn');
+            const downloadReceiptBtn = document.getElementById('downloadReceiptBtn');
+            const closeReceiptModalBtn = document.getElementById('closeReceiptModalBtn');
 
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
             let total = 0;
 
-            // Un objeto para agrupar productos por ID
-            const productMap = {};
+            cartItemsContainer.innerHTML = '';
 
-            cart.forEach(item => {
-                if (productMap[item.id]) {
-                    productMap[item.id].quantity += item.quantity;
+            const productGroups = cart.reduce((acc, item) => {
+                if (!acc[item.id]) {
+                    acc[item.id] = { ...item };
                 } else {
-                    productMap[item.id] = { ...item };
+                    acc[item.id].quantity += item.quantity;
                 }
-            });
+                return acc;
+            }, {});
 
-            // Crear elementos HTML para cada producto en el mapa
-            Object.values(productMap).forEach(item => {
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}">
-                    <div class="cart-item-details">
-                        <h4>${item.title}</h4>
-                        <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
-                        <button class="remove-btn" data-id="${item.id}">Eliminar</button>
-                    </div>
-                `;
-                cartItemsContainer.appendChild(cartItem);
+            Object.values(productGroups).forEach(item => {
+                if (typeof item.price === 'number' && !isNaN(item.price)) {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="item-info">
+                            <h4>${item.title}</h4>
+                            <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+                            <button class="remove-btn" data-id="${item.id}">Eliminar</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
 
-                total += item.price * item.quantity;
+                    total += item.price * item.quantity;
+                } else {
+                    console.error('Precio no definido o inválido para el producto:', item);
+                }
             });
 
             totalElement.textContent = total.toFixed(2);
@@ -127,111 +134,85 @@
             document.querySelectorAll('.remove-btn').forEach(button => {
                 button.addEventListener('click', () => {
                     const id = button.getAttribute('data-id');
-                    const index = cart.findIndex(item => item.id === id);
-                    if (index > -1) {
-                        cart.splice(index, 1);
-                        localStorage.setItem('cart', JSON.stringify(cart));
-                        location.reload();
-                    }
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const updatedCart = cart.filter(item => item.id !== id);
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+                    location.reload();
                 });
             });
 
-            document.getElementById('checkoutBtn').addEventListener('click', () => {
-                if (cart.length > 0) {
-                    const confirmPurchase = confirm('¿Quieres comprar estos productos?');
-                    if (confirmPurchase) {
-                        alert('Gracias por tu compra.');
+            checkoutBtn.addEventListener('click', () => {
+                confirmationModal.style.display = 'flex';
+            });
 
-                        // Mostrar el botón de descarga del recibo
-                        const downloadReceiptButton = document.getElementById('downloadReceipt');
-                        downloadReceiptButton.style.display = 'block';
+            confirmPurchaseBtn.addEventListener('click', () => {
+                confirmationModal.style.display = 'none';
+                receiptModal.style.display = 'flex';
+                // Aquí también puedes limpiar el carrito si solo se realiza la compra
+                clearCart(); // Limpiar carrito después de compra
+            });
 
-                        // Preparar los datos del recibo
-                        const receiptItemsContainer = document.getElementById('recibo-items');
-                        const receiptTotalElement = document.getElementById('recibo-total');
-                        const receiptDateElement = document.getElementById('fecha');
+            cancelPurchaseBtn.addEventListener('click', () => {
+                confirmationModal.style.display = 'none';
+            });
 
-                        let total = 0;
-                        const productGroups = cart.reduce((acc, item) => {
-                            if (!acc[item.id]) {
-                                acc[item.id] = { ...item };
-                            } else {
-                                acc[item.id].quantity += item.quantity;
-                            }
-                            return acc;
-                        }, {});
+            downloadReceiptBtn.addEventListener('click', () => {
+                generateReceipt();
+                receiptModal.style.display = 'none';
+                clearCart(); // Limpiar carrito después de descarga
+            });
 
-                        // Agregar productos al recibo
-                        receiptItemsContainer.innerHTML = ''; // Limpiar el contenedor del recibo
-                        Object.values(productGroups).forEach(item => {
-                            const receiptItem = document.createElement('tr');
-                            receiptItem.innerHTML = `
-                                <td>${item.title}</td>
-                                <td>${item.quantity}</td>
-                                <td>$${item.price.toFixed(2)}</td>
-                            `;
-                            receiptItemsContainer.appendChild(receiptItem);
+            closeReceiptModalBtn.addEventListener('click', () => {
+                receiptModal.style.display = 'none';
+            });
 
-                            total += item.price * item.quantity;
-                        });
+            async function generateReceipt() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
 
-                        receiptTotalElement.textContent = total.toFixed(2);
+                doc.text('Recibo de Compra', 10, 10);
+                doc.text('Fecha: ' + new Date().toLocaleDateString(), 10, 20);
 
-                        // Establecer la fecha de hoy en el recibo
-                        const today = new Date();
-                        const dateString = today.toISOString().split('T')[0];
-                        receiptDateElement.textContent = dateString;
+                let y = 30;
+                Object.values(productGroups).forEach(item => {
+                    doc.text(`${item.title}: $${item.price.toFixed(2)} x ${item.quantity}`, 10, y);
+                    y += 10;
+                });
 
-                        // Limpiar el carrito
-                        localStorage.removeItem('cart');
-                        location.reload(); // Recarga la página para limpiar el carrito
+                doc.text('Total: $' + total.toFixed(2), 10, y);
+                
+                doc.save('recibo_compra.pdf');
+            }
+
+            function clearCart() {
+                console.log('Clearing cart...');
+                localStorage.removeItem('cart');
+                cartItemsContainer.innerHTML = ''; // Limpiar el contenedor de productos
+                totalElement.textContent = '0.00'; // Restablecer el total
+                console.log('Cart cleared.');
+                location.reload(); // Recargar la página para actualizar el carrito
+            }
+
+            document.querySelectorAll('.agregar-carrito').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    const name = button.getAttribute('data-name');
+                    const price = parseFloat(button.getAttribute('data-price'));
+                    const image = button.getAttribute('data-image');
+
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    const existingProductIndex = cart.findIndex(item => item.id === id);
+
+                    if (existingProductIndex > -1) {
+                        cart[existingProductIndex].quantity += 1;
+                    } else {
+                        cart.push({ id, title: name, price, image, quantity: 1 });
                     }
-                } else {
-                    alert('Tu carrito está vacío.');
-                }
-            });
 
-            // Manejar el clic en el botón para descargar el recibo en PDF
-            document.getElementById('downloadReceipt').addEventListener('click', () => {
-                const reciboElement = document.getElementById('recibo');
-                reciboElement.style.display = 'block'; // Asegúrate de que el recibo sea visible temporalmente
-
-                // Usa html2pdf para convertir el recibo a PDF
-                html2pdf()
-                    .from(reciboElement)
-                    .set({
-                        margin: 1,
-                        filename: 'recibo.pdf',
-                        html2canvas: { scale: 2 },
-                        jsPDF: { orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true }
-                    })
-                    .save()
-                    .then(() => {
-                        reciboElement.style.display = 'none'; // Oculta el recibo nuevamente
-                    });
-            });
-        });
-
-        // Agregar productos al carrito (esto va en la página de productos)
-        document.querySelectorAll('.agregar-carrito').forEach(button => {
-            button.addEventListener('click', () => {
-                const id = button.getAttribute('data-id');
-                const name = button.getAttribute('data-name');
-                const price = parseFloat(button.getAttribute('data-price'));
-                const image = button.getAttribute('data-image');
-
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-                const existingProductIndex = cart.findIndex(item => item.id === id);
-
-                if (existingProductIndex > -1) {
-                    cart[existingProductIndex].quantity += 1;
-                } else {
-                    cart.push({ id, title: name, price, image, quantity: 1 });
-                }
-
-                localStorage.setItem('cart', JSON.stringify(cart));
-                alert('Producto agregado al carrito');
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    alert('Producto agregado al carrito');
+                });
             });
         });
     </script>
