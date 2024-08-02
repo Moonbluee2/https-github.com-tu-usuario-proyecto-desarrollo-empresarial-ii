@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.innerHTML = `
                 <div class="modal-content">
                     <h2>Confirmar Compra</h2>
-                    <p>¿Quieres comprar estos productos?</p>
+                    <p>¿Deseas comprar estos productos?</p>
                     <button id="confirmPurchaseBtn">Confirmar Compra</button>
                     <button id="cancelPurchaseBtn">Cancelar</button>
                     <button id="downloadReceiptBtn">Descargar Recibo</button>
@@ -214,9 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('cart');
         cartItemsContainer.innerHTML = ''; // Limpiar el contenedor de productos
         totalElement.textContent = '0.00'; // Restablecer el total
-        setTimeout(() => {
-            location.reload(); // Recargar la página para mostrar el carrito vacío
-        }, 100); // Retardo de 100ms para asegurar la limpieza
+        // No recargar la página aquí para evitar un segundo reloading innecesario
     }
 });
 

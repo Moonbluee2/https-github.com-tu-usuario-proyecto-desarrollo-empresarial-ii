@@ -148,8 +148,6 @@
             confirmPurchaseBtn.addEventListener('click', () => {
                 confirmationModal.style.display = 'none';
                 receiptModal.style.display = 'flex';
-                // Aquí también puedes limpiar el carrito si solo se realiza la compra
-                clearCart(); // Limpiar carrito después de compra
             });
 
             cancelPurchaseBtn.addEventListener('click', () => {
@@ -159,7 +157,6 @@
             downloadReceiptBtn.addEventListener('click', () => {
                 generateReceipt();
                 receiptModal.style.display = 'none';
-                clearCart(); // Limpiar carrito después de descarga
             });
 
             closeReceiptModalBtn.addEventListener('click', () => {
@@ -182,15 +179,6 @@
                 doc.text('Total: $' + total.toFixed(2), 10, y);
                 
                 doc.save('recibo_compra.pdf');
-            }
-
-            function clearCart() {
-                console.log('Clearing cart...');
-                localStorage.removeItem('cart');
-                cartItemsContainer.innerHTML = ''; // Limpiar el contenedor de productos
-                totalElement.textContent = '0.00'; // Restablecer el total
-                console.log('Cart cleared.');
-                location.reload(); // Recargar la página para actualizar el carrito
             }
 
             document.querySelectorAll('.agregar-carrito').forEach(button => {
