@@ -1,95 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylecap1.css">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylecap1.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <title>STRAWBERRY-CAPINFO-#8</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <div class="nav-bar">
-            <i class='bx bx-menu sidebarOpen'></i>
-            <span class="logo navLogo"><a href="INICIO.html"><img src="images/LOGO STRAW2.png" alt="LOGO EN FORMA DE FRESA" class="logo-image"></a></span>
-            <div class="menu">
-                <div class="logo-toggle">
-                    <span class="logo"><a href="INICIO.html">STRAWBERRY</a></span>
-                    <i class='bx bx-x siderbarClose'></i>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="INICIO.html">Inicio</a></li>
-                    <li><a href="INICIO.html">Catálogo</a></li>
-                    <li><a href="#">Marcas</a>
-                        <ul class="submenu">
-                            <li><a href="1IRONTRENDY.html">1IRONTRENDY</a></li>
-                            <li><a href="5.7 CLOTHING.html">5.7 CLOTHING</a></li>
-                            <li><a href="ACE HATS.html">ACE HATS</a></li>
-                            <li><a href="CAPSCOMPANY.html">CAPS COMPANY</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="header-container">
-                <div class="cart-user-container">
-                    <div class="darkLight-searchBox">
-                        <div class="dark-light">
-                            <i class='bx bx-moon moon'></i>
-                            <i class='bx bx-sun sun'></i>
-                        </div>
-                        <div class="searchBox">
-                            <div class="searchToggle">
-                                <i class='bx bx-x cancel'></i>
-                                <i class='bx bx-search search'></i>
-                            </div>
-                            <div class="search-field">
-                                <input type="text" placeholder="Search...">
-                                <i class='bx bx-search'></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <a href="INICIO Y REGISTRO.html"><i class='bx bx-user-circle'></i></a>
-                    </div>
-                    <div class="cart">
-                        <a href="Carrito de compras.html"><i class='bx bx-cart'></i></a>
-                    </div>
-                </div>
-            </div>
+      <div class="nav-bar">
+        <i class="bx bx-menu sidebarOpen"></i>
+        <span class="logo navLogo"
+          ><a href="INICIO.html"
+            ><img
+              src="images/LOGO STRAW2.png"
+              alt="LOGO EN FORMA DE FRESA"
+              class="logo-image" /></a
+        ></span>
+        <div class="menu">
+          <div class="logo-toggle">
+            <span class="logo"><a href="INICIO.html">STRAWBERRY</a></span>
+            <i class="bx bx-x siderbarClose"></i>
+          </div>
+          <ul class="nav-links">
+            <li><a href="INICIO.html">Inicio</a></li>
+            <li><a href="INICIO.html">Catálogo</a></li>
+            <li>
+              <a href="#">Marcas</a>
+              <ul class="submenu">
+                <li><a href="1IRONTRENDY.html">1IRONTRENDY</a></li>
+                <li><a href="5.7 CLOTHING.html">5.7 CLOTHING</a></li>
+                <li><a href="ACE HATS.html">ACE HATS</a></li>
+                <li><a href="CAPSCOMPANY.html">CAPS COMPANY</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
+        <div class="header-container">
+          <div class="cart-user-container">
+            <div class="darkLight-searchBox">
+              <div class="dark-light">
+                <i class="bx bx-moon moon"></i>
+                <i class="bx bx-sun sun"></i>
+              </div>
+              <div class="searchBox">
+                <div class="searchToggle">
+                  <i class="bx bx-x cancel"></i>
+                  <i class="bx bx-search search"></i>
+                </div>
+                <div class="search-field">
+                  <input type="text" placeholder="Search..." />
+                  <i class="bx bx-search"></i>
+                </div>
+              </div>
+            </div>
+            <div class="user">
+              <a href="INICIO Y REGISTRO.html"
+                ><i class="bx bx-user-circle"></i
+              ></a>
+            </div>
+            <div class="cart">
+              <a href="Carrito de compras.html"><i class="bx bx-cart"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <section class="gallery container">
-        <div class="gallery-list">
-            <img src="images/PABLO ESCOBAR GREEN.png" alt="Image 1" class="gallery-item" onclick="changePreview(this)">
-            <img src="images/PABLO ESCOBAR GREEN LEFT.png" alt="Image 2" class="gallery-item" onclick="changePreview(this)">
-            <img src="images/PABLO ESCOBAR GREEN RIGH.png" alt="Image 3" class="gallery-item" onclick="changePreview(this)">
-        </div>
-        <div class="gallery-preview">
-            <img src="images/PABLO ESCOBAR GREEN.png" alt="Preview Image" class="preview-item" id="preview">
-        </div>
-        <div class="perfume-info">
-            <h2>PABLO ESCOBAR GREEN</h2>
-            <h3>Detalle de producto</h3>
-            <ul class="product-details">
-                <li><strong>Marca:</strong>ACE HATS</li>
-                <li><strong>Gorra tipo:</strong> snapback</li>
-                <li><strong>Familia o colección:</strong>ACE HATS</li>
-                <li><strong>Tipo De Visera:</strong>Visera plana</li>
-                <li><strong>Talla:</strong>Unitalla</li>
-                <li><strong>Ajustable:</strong>Ajustable con broche</li>
-                <li><strong>Sugerido para:</strong> Hombre /Unisex</li>
-            </ul>
-            <p>Precio:$ 950.00</p>
-            <button id="addToCartBtn" class="agregar-carrito" 
-            data-id="8" 
-            data-name="PABLO ESCOBAR GREEN" 
-            data-price="950.00"
-            data-image="images/PABLO ESCOBAR GREEN.png">Agregar al carrito</button>
-        </div>
+      <div class="gallery-list">
+        <img
+          src="images/PABLO ESCOBAR GREEN.png"
+          alt="Image 1"
+          class="gallery-item"
+          onclick="changePreview(this)"
+        />
+        <img
+          src="images/PABLO ESCOBAR GREEN LEFT.png"
+          alt="Image 2"
+          class="gallery-item"
+          onclick="changePreview(this)"
+        />
+        <img
+          src="images/PABLO ESCOBAR GREEN RIGH.png"
+          alt="Image 3"
+          class="gallery-item"
+          onclick="changePreview(this)"
+        />
+      </div>
+      <div class="gallery-preview">
+        <img
+          src="images/PABLO ESCOBAR GREEN.png"
+          alt="Preview Image"
+          class="preview-item"
+          id="preview"
+        />
+      </div>
+      <div class="perfume-info">
+        <h2>PABLO ESCOBAR GREEN</h2>
+        <h3>Detalle de producto</h3>
+        <ul class="product-details">
+          <li><strong>Marca:</strong>ACE HATS</li>
+          <li><strong>Gorra tipo:</strong> snapback</li>
+          <li><strong>Familia o colección:</strong>ACE HATS</li>
+          <li><strong>Tipo De Visera:</strong>Visera plana</li>
+          <li><strong>Talla:</strong>Unitalla</li>
+          <li><strong>Ajustable:</strong>Ajustable con broche</li>
+          <li><strong>Sugerido para:</strong> Hombre /Unisex</li>
+        </ul>
+        <p>Precio:$ 950.00</p>
+        <button
+          id="addToCartBtn"
+          class="agregar-carrito"
+          data-id="8"
+          data-name="PABLO ESCOBAR GREEN"
+          data-price="950.00"
+          data-image="images/PABLO ESCOBAR GREEN.png"
+        >
+          Agregar al carrito
+        </button>
+      </div>
     </section>
 
     <script src="scriptcap1.js"></script>
-</body>
+  </body>
 </html>

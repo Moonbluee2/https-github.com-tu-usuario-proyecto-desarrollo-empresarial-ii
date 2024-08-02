@@ -1,222 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
-    <script defer src="scripttt.js"></script> 
+    <script defer src="scripttt.js"></script>
 
     <!-- ===== Boxicons CSS ===== -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <title>STRAWBERRY</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <div class="nav-bar">
-            <i class='bx bx-menu sidebarOpen'></i>
-            <span class="logo navLogo"><a href="INICIO.html"><img src="images/LOGO STRAW2.png" alt="LOGO EN FORMA DE FRESA" class="logo-image"></a></span>
-            <div class="menu">
-                <div class="logo-toggle">
-                    <span class="logo"><a href="INICIO.html">STRAWBERRY</a></span>
-                    <i class='bx bx-x siderbarClose'></i>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="INICIO.html">Inicio</a></li>
-                    <li><a href="INICIO.html">Catálogo</a></li>
-                    <li><a href="#">Marcas</a>
-                        <ul class="submenu">
-                            <li><a href="1IRONTRENDY.html">1IRONTRENDY</a></li>
-                            <li><a href="5.7 CLOTHING.html">5.7 CLOTHING</a></li>
-                            <li><a href="ACE HATS.html">ACE HATS</a></li>
-                            <li><a href="CAPSCOMPANY.html">CAPS COMPANY</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="header-container">
-                <div class="cart-user-container">
-                    <div class="darkLight-searchBox">
-                        <div class="dark-light">
-                            <i class='bx bx-moon moon'></i>
-                            <i class='bx bx-sun sun'></i>
-                        </div>
-                        <div class="searchBox">
-                            <div class="searchToggle">
-                                <i class='bx bx-x cancel'></i>
-                                <i class='bx bx-search search'></i>
-                            </div>
-                            <div class="search-field">
-                                <input type="text" id="searchInput"placeholder="Search...">
-                                <i class='bx bx-search'></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <a href="INICIO Y REGISTRO.html"><i class='bx bx-user-circle'></i></a>
-                    </div>
-
-                    <div class="cart">
-                        <a href="Carrito de compras.html"><i class='bx bx-cart'></i></a>
-                    </div>
-                </div>
-            </div>
+      <div class="nav-bar">
+        <i class="bx bx-menu sidebarOpen"></i>
+        <span class="logo navLogo"
+          ><a href="INICIO.html"
+            ><img
+              src="images/LOGO STRAW2.png"
+              alt="LOGO EN FORMA DE FRESA"
+              class="logo-image" /></a
+        ></span>
+        <div class="menu">
+          <div class="logo-toggle">
+            <span class="logo"><a href="INICIO.html">STRAWBERRY</a></span>
+            <i class="bx bx-x siderbarClose"></i>
+          </div>
+          <ul class="nav-links">
+            <li><a href="INICIO.html">Inicio</a></li>
+            <li><a href="INICIO.html">Catálogo</a></li>
+            <li>
+              <a href="#">Marcas</a>
+              <ul class="submenu">
+                <li><a href="1IRONTRENDY.html">1IRONTRENDY</a></li>
+                <li><a href="5.7 CLOTHING.html">5.7 CLOTHING</a></li>
+                <li><a href="ACE HATS.html">ACE HATS</a></li>
+                <li><a href="CAPSCOMPANY.html">CAPS COMPANY</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
+
+        <div class="header-container">
+          <div class="cart-user-container">
+            <div class="darkLight-searchBox">
+              <div class="dark-light">
+                <i class="bx bx-moon moon"></i>
+                <i class="bx bx-sun sun"></i>
+              </div>
+              <div class="searchBox">
+                <div class="searchToggle">
+                  <i class="bx bx-x cancel"></i>
+                  <i class="bx bx-search search"></i>
+                </div>
+                <div class="search-field">
+                  <input type="text" id="searchInput" placeholder="Search..." />
+                  <i class="bx bx-search"></i>
+                </div>
+              </div>
+            </div>
+            <div class="user">
+              <a href="INICIO Y REGISTRO.html"
+                ><i class="bx bx-user-circle"></i
+              ></a>
+            </div>
+
+            <div class="cart">
+              <a href="Carrito de compras.html"><i class="bx bx-cart"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
 
-    <img src="images/imagen principal.png" alt="Imagen Principal" class="styled-image">
+    <img
+      src="images/imagen principal.png"
+      alt="Imagen Principal"
+      class="styled-image"
+    />
 
     <!-- Contenedor de tarjetas -->
-        <div id="productContainer">
-            <div class="card-row">
-                <div class="card-container">
-                    <div class="card" data-title="LUCKY BLACK">
-                        <img src="images/LUCKY BLACK.png" alt="Imagen de producto">
-                        <div class="card-content">
-                            <h2>LUCKY BLACK</h2>
-                            <p>$ 850.00</p>
-                            <a href="InfoCap1.html">
-                                <button>Comprar Ahora</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card" data-title="LUCKY BLUE">
-                        <img src="images/LUCKY BLUE.png" alt="Imagen de producto">
-                        <div class="card-content">
-                            <h2>LUCKY BLUE</h2>
-                            <p>$ 850.00</p>
-                            <a href="InfoCap2.html">
-                                <button>Comprar Ahora</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card" data-title="COLORS 2024 CURVE">
-                        <img src="images/COLORS 2024 CURVE.png" alt="Imagen de producto">
-                        <div class="card-content">
-                            <h2>COLORS 2024 CURVE</h2>
-                            <p>$ 800.00</p>
-                            <a href="InfoCap3.html">
-                                <button>Comprar Ahora</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card" data-title="COLORS GOLD 2023">
-                        <img src="images/COLORS GOLD 2023.png" alt="Imagen de producto">
-                        <div class="card-content">
-                            <h2>COLORS GOLD 2023</h2>
-                            <p>$ 850.00</p>
-                            <a href="InfoCap4.html">
-                                <button>Comprar Ahora</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    <div id="productContainer">
+      <div class="card-row">
+        <div class="card-container">
+          <div class="card" data-title="LUCKY BLACK">
+            <img src="images/LUCKY BLACK.png" alt="Imagen de producto" />
+            <div class="card-content">
+              <h2>LUCKY BLACK</h2>
+              <p>$ 850.00</p>
+              <a href="InfoCap1.html">
+                <button>Comprar Ahora</button>
+              </a>
             </div>
-            <div class="card-row">
-                <div class="card-container">
-                    <div class="card" data-title="BULLET GOLD GREY">
-                        <img src="images/BULLET GOLD GREY.png" alt="Imagen de producto">
-                        <div class="card-content">
-                            <h2>BULLET GOLD GREY</h2>
-                            <p>$ 550.00</p>
-                            <a href="InfoCap6.html">
-                                <button>Comprar Ahora</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card" data-title="GALLO FINO BEIGE">
-                        <img src="images/GALLO FINO BEIGE.webp" alt="Imagen de producto">
-                        <div class="card-content">
-                            <h2>GALLO FINO BEIGE</h2>
-                            <p>$700.00</p>
-                            <a href="InfoCap7.html">
-                                <button>Comprar Ahora</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card" data-title="PABLO ESCOBAR GREEN">
-                        <img src="images/PABLO ESCOBAR GREEN.png" alt="Imagen de producto">
-                        <div class="card-content">
-                            <h2>PABLO ESCOBAR GREEN</h2>
-                            <p>$ 950.00</p>
-                            <a href="InfoCap8.html">
-                                <button>Comprar Ahora</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card" data-title="EL REY DEL CORRIDO">
-                        <img src="images/EL REY DEL CORRIDO.png" alt="Imagen de producto">
-                        <div class="card-content">
-                            <h2>EL REY DEL CORRIDO</h2>
-                            <p>$ 800.00</p>
-                            <a href="InfoCap9.html">
-                                <button>Comprar Ahora</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="card" data-title="LUCKY BLUE">
+            <img src="images/LUCKY BLUE.png" alt="Imagen de producto" />
+            <div class="card-content">
+              <h2>LUCKY BLUE</h2>
+              <p>$ 850.00</p>
+              <a href="InfoCap2.html">
+                <button>Comprar Ahora</button>
+              </a>
             </div>
+          </div>
+          <div class="card" data-title="COLORS 2024 CURVE">
+            <img src="images/COLORS 2024 CURVE.png" alt="Imagen de producto" />
+            <div class="card-content">
+              <h2>COLORS 2024 CURVE</h2>
+              <p>$ 800.00</p>
+              <a href="InfoCap3.html">
+                <button>Comprar Ahora</button>
+              </a>
+            </div>
+          </div>
+          <div class="card" data-title="COLORS GOLD 2023">
+            <img src="images/COLORS GOLD 2023.png" alt="Imagen de producto" />
+            <div class="card-content">
+              <h2>COLORS GOLD 2023</h2>
+              <p>$ 850.00</p>
+              <a href="InfoCap4.html">
+                <button>Comprar Ahora</button>
+              </a>
+            </div>
+          </div>
         </div>
-
-                    
-
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                min-height: 90vh;
-                display: flex;
-                flex-direction: column;
-            }
-            .content {
-                flex: 1;
-            }
-            .pagination {
-                display: flex;
-                justify-content: center;
-                padding: 9px 0;
-                background-color: #f1f1f1;
-                position: sticky;
-                bottom: 0;
-                width: 100%;
-            }
-            .pagination a {
-                color: black;
-                padding: 8px 16px;
-                text-decoration: none;
-                transition: background-color .3s;
-                border: 1px solid #ddd;
-                margin: 0 4px;
-            }
-            .pagination a.active {
-                background-color: #4CAF50;
-                color: white;
-                border: 1px solid #4CAF50;
-            }
-            .pagination a:hover:not(.active) {
-                background-color: #ddd;
-            }
-        </style>
-        
-      
-        
-        <div class="pagination">
-          <a href="INICIO.html">&laquo;</a>
-          <a href="INICIO.html">1</a>
-          <a href="INICIO2.html">2</a>
-          <a href="INICIO3.html">3</a>
-          <a href="INICIO2.html">&raquo;</a>
+      </div>
+      <div class="card-row">
+        <div class="card-container">
+          <div class="card" data-title="BULLET GOLD GREY">
+            <img src="images/BULLET GOLD GREY.png" alt="Imagen de producto" />
+            <div class="card-content">
+              <h2>BULLET GOLD GREY</h2>
+              <p>$ 550.00</p>
+              <a href="InfoCap6.html">
+                <button>Comprar Ahora</button>
+              </a>
+            </div>
+          </div>
+          <div class="card" data-title="GALLO FINO BEIGE">
+            <img src="images/GALLO FINO BEIGE.webp" alt="Imagen de producto" />
+            <div class="card-content">
+              <h2>GALLO FINO BEIGE</h2>
+              <p>$700.00</p>
+              <a href="InfoCap7.html">
+                <button>Comprar Ahora</button>
+              </a>
+            </div>
+          </div>
+          <div class="card" data-title="PABLO ESCOBAR GREEN">
+            <img
+              src="images/PABLO ESCOBAR GREEN.png"
+              alt="Imagen de producto"
+            />
+            <div class="card-content">
+              <h2>PABLO ESCOBAR GREEN</h2>
+              <p>$ 950.00</p>
+              <a href="InfoCap8.html">
+                <button>Comprar Ahora</button>
+              </a>
+            </div>
+          </div>
+          <div class="card" data-title="EL REY DEL CORRIDO">
+            <img src="images/EL REY DEL CORRIDO.png" alt="Imagen de producto" />
+            <div class="card-content">
+              <h2>EL REY DEL CORRIDO</h2>
+              <p>$ 800.00</p>
+              <a href="InfoCap9.html">
+                <button>Comprar Ahora</button>
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .content {
+        flex: 1;
+      }
+      .pagination {
+        display: flex;
+        justify-content: center;
+        padding: 9px 0;
+        background-color: #f1f1f1;
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+      }
+      .pagination a {
+        color: black;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        border: 1px solid #ddd;
+        margin: 0 4px;
+      }
+      .pagination a.active {
+        background-color: #4caf50;
+        color: white;
+        border: 1px solid #4caf50;
+      }
+      .pagination a:hover:not(.active) {
+        background-color: #ddd;
+      }
+    </style>
 
-
-
-
+    <div class="pagination">
+      <a href="INICIO.html">&laquo;</a>
+      <a href="INICIO.html">1</a>
+      <a href="INICIO2.html">2</a>
+      <a href="INICIO3.html">3</a>
+      <a href="INICIO2.html">&raquo;</a>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
