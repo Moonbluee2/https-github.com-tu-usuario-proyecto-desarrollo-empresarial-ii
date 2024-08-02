@@ -5,139 +5,221 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <title>Carrito de Compras</title>
-  </head>
-  <body>
     <nav>
-      <div class="nav-bar">
-        <i class="bx bx-menu sidebarOpen"></i>
-        <span class="logo navLogo"
-          ><a href="INICIO.html"
-            ><img
-              src="images/LOGO STRAW2.png"
-              alt="LOGO EN FORMA DE FRESA"
-              class="logo-image" /></a
-        ></span>
-        <div class="menu">
-          <div class="logo-toggle">
-            <span class="logo"><a href="INICIO.html">STRAWBERRY</a></span>
-            <i class="bx bx-x siderbarClose"></i>
-          </div>
-          <ul class="nav-links">
-            <li><a href="INICIO.html">Inicio</a></li>
-            <li><a href="INICIO.html">Catálogo</a></li>
-            <li><a href="#">Marcas</a></li>
-          </ul>
-        </div>
-
-        <div class="header-container">
-          <div class="cart-user-container">
-            <div class="darkLight-searchBox">
-              <div class="dark-light">
-                <i class="bx bx-moon moon"></i>
-                <i class="bx bx-sun sun"></i>
-              </div>
-              <div class="searchBox">
-                <div class="searchToggle">
-                  <i class="bx bx-x cancel"></i>
-                  <i class="bx bx-search search"></i>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <span class="logo navLogo"><a href="INICIO.html"><img src="images/LOGO STRAW2.png" alt="LOGO EN FORMA DE FRESA" class="logo-image"></a></span>
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="INICIO.html">STRAWBERRY</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
                 </div>
-                <div class="search-field">
-                  <input type="text" placeholder="Search..." />
-                  <i class="bx bx-search"></i>
-                </div>
-              </div>
+                <ul class="nav-links">
+                    <li><a href="INICIO.html">Inicio</a></li>
+                    <li><a href="INICIO.html">Catálogo</a></li>
+                    <li><a href="#">Marcas</a></li>
+                </ul>
             </div>
-            <div class="user">
-              <a href="#"><i class="bx bx-user-circle"></i></a>
-            </div>
+            
+            <div class="header-container">
+                <div class="cart-user-container">
+                    <div class="darkLight-searchBox">
+                        <div class="dark-light">
+                            <i class='bx bx-moon moon'></i>
+                            <i class='bx bx-sun sun'></i>
+                        </div>
+                        <div class="searchBox">
+                            <div class="searchToggle">
+                                <i class='bx bx-x cancel'></i>
+                                <i class='bx bx-search search'></i>
+                            </div>
+                            <div class="search-field">
+                                <input type="text" placeholder="Search...">
+                                <i class='bx bx-search'></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <a href="#"><i class='bx bx-user-circle'></i></a>
+                    </div>
 
-            <div class="cart">
-              <a href="#"><i class="bx bx-cart"></i></a>
+                    <div class="cart">
+                        <a href="#"><i class='bx bx-cart'></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </nav>
 
     <section class="cart container">
-      <h1>Carrito de Compras</h1>
-      <div class="cart-items">
-        <!-- Los productos se agregarán dinámicamente aquí -->
-      </div>
-      <div class="cart-total">
-        <h3>Total: $<span id="total">0.00</span></h3>
-        <button id="checkoutBtn">Comprar</button>
-      </div>
+        <h1>Carrito de Compras</h1>
+        <div class="cart-items">
+            <!-- Los productos se agregarán dinámicamente aquí -->
+        </div>
+        <div class="cart-total">
+            <h3>Total: $<span id="total">0.00</span></h3>
+            <button id="checkoutBtn">Comprar</button>
+        </div>
     </section>
 
+    <!-- Modal para confirmación de compra -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>¿Quieres comprar estos productos?</h2>
+            <button id="confirmPurchaseBtn">Sí, comprar</button>
+            <button id="cancelPurchaseBtn">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal para generación de recibo -->
+    <div id="receiptModal" class="modal">
+        <div class="modal-content">
+            <h2>Compra completada</h2>
+            <p>Tu compra ha sido realizada con éxito. ¿Deseas descargar el recibo?</p>
+            <button id="downloadReceiptBtn">Descargar recibo</button>
+            <button id="closeReceiptModalBtn">Cerrar</button>
+        </div>
+    </div>
+
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartItemsContainer = document.querySelector(".cart-items");
-        const totalElement = document.getElementById("total");
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const totalElement = document.getElementById('total');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const receiptModal = document.getElementById('receiptModal');
+            const confirmPurchaseBtn = document.getElementById('confirmPurchaseBtn');
+            const cancelPurchaseBtn = document.getElementById('cancelPurchaseBtn');
+            const downloadReceiptBtn = document.getElementById('downloadReceiptBtn');
+            const closeReceiptModalBtn = document.getElementById('closeReceiptModalBtn');
 
-        let total = 0;
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
 
-        // Un objeto para agrupar productos por ID
-        const productMap = {};
+            cartItemsContainer.innerHTML = '';
 
-        cart.forEach((item) => {
-          if (productMap[item.id]) {
-            productMap[item.id].quantity += item.quantity;
-          } else {
-            productMap[item.id] = { ...item };
-          }
-        });
+            const productGroups = cart.reduce((acc, item) => {
+                if (!acc[item.id]) {
+                    acc[item.id] = { ...item };
+                } else {
+                    acc[item.id].quantity += item.quantity;
+                }
+                return acc;
+            }, {});
 
-        // Crear elementos HTML para cada producto en el mapa
-        Object.values(productMap).forEach((item) => {
-          const cartItem = document.createElement("div");
-          cartItem.classList.add("cart-item");
-          cartItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}">
-                    <div class="cart-item-details">
-                        <h4>${item.title}</h4>
-                        <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
-                        <button class="remove-btn" data-id="${
-                          item.id
-                        }">Eliminar</button>
-                    </div>
-                `;
-          cartItemsContainer.appendChild(cartItem);
+            Object.values(productGroups).forEach(item => {
+                if (typeof item.price === 'number' && !isNaN(item.price)) {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="item-info">
+                            <h4>${item.title}</h4>
+                            <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+                            <button class="remove-btn" data-id="${item.id}">Eliminar</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
 
-          total += item.price * item.quantity;
-        });
+                    total += item.price * item.quantity;
+                } else {
+                    console.error('Precio no definido o inválido para el producto:', item);
+                }
+            });
 
-        totalElement.textContent = total.toFixed(2);
+            totalElement.textContent = total.toFixed(2);
 
-        document.querySelectorAll(".remove-btn").forEach((button) => {
-          button.addEventListener("click", () => {
-            const id = button.getAttribute("data-id");
-            const index = cart.findIndex((item) => item.id === id);
-            if (index > -1) {
-              cart.splice(index, 1);
-              localStorage.setItem("cart", JSON.stringify(cart));
-              location.reload();
+            document.querySelectorAll('.remove-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const updatedCart = cart.filter(item => item.id !== id);
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+                    location.reload();
+                });
+            });
+
+            checkoutBtn.addEventListener('click', () => {
+                confirmationModal.style.display = 'flex';
+            });
+
+            confirmPurchaseBtn.addEventListener('click', () => {
+                confirmationModal.style.display = 'none';
+                receiptModal.style.display = 'flex';
+                // Aquí también puedes limpiar el carrito si solo se realiza la compra
+                clearCart(); // Limpiar carrito después de compra
+            });
+
+            cancelPurchaseBtn.addEventListener('click', () => {
+                confirmationModal.style.display = 'none';
+            });
+
+            downloadReceiptBtn.addEventListener('click', () => {
+                generateReceipt();
+                receiptModal.style.display = 'none';
+                clearCart(); // Limpiar carrito después de descarga
+            });
+
+            closeReceiptModalBtn.addEventListener('click', () => {
+                receiptModal.style.display = 'none';
+            });
+
+            async function generateReceipt() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                doc.text('Recibo de Compra', 10, 10);
+                doc.text('Fecha: ' + new Date().toLocaleDateString(), 10, 20);
+
+                let y = 30;
+                Object.values(productGroups).forEach(item => {
+                    doc.text(`${item.title}: $${item.price.toFixed(2)} x ${item.quantity}`, 10, y);
+                    y += 10;
+                });
+
+                doc.text('Total: $' + total.toFixed(2), 10, y);
+                
+                doc.save('recibo_compra.pdf');
             }
-          });
-        });
 
-        document.getElementById("checkoutBtn").addEventListener("click", () => {
-          if (cart.length > 0) {
-            const confirmPurchase = confirm(
-              "¿Quieres comprar estos productos?"
-            );
-            if (confirmPurchase) {
-              alert("Gracias por tu compra.");
-              localStorage.removeItem("cart");
-              location.reload();
+            function clearCart() {
+                console.log('Clearing cart...');
+                localStorage.removeItem('cart');
+                cartItemsContainer.innerHTML = ''; // Limpiar el contenedor de productos
+                totalElement.textContent = '0.00'; // Restablecer el total
+                console.log('Cart cleared.');
+                location.reload(); // Recargar la página para actualizar el carrito
             }
-          } else {
-            alert("Tu carrito está vacío.");
-          }
+
+            document.querySelectorAll('.agregar-carrito').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    const name = button.getAttribute('data-name');
+                    const price = parseFloat(button.getAttribute('data-price'));
+                    const image = button.getAttribute('data-image');
+
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    const existingProductIndex = cart.findIndex(item => item.id === id);
+
+                    if (existingProductIndex > -1) {
+                        cart[existingProductIndex].quantity += 1;
+                    } else {
+                        cart.push({ id, title: name, price, image, quantity: 1 });
+                    }
+
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    alert('Producto agregado al carrito');
+                });
+            });
         });
-      });
     </script>
-  </body>
+</body>
 </html>

@@ -91,11 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 // Carrito de compras
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleccionar elementos
     const cartItemsContainer = document.querySelector('.cart-items');
     const totalElement = document.getElementById('total');
-
-    // Obtener productos del carrito del localStorage
+    const checkoutBtn = document.getElementById('checkoutBtn');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     let total = 0;
@@ -141,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.remove-btn').forEach(button => {
         button.addEventListener('click', () => {
             const id = button.getAttribute('data-id');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const updatedCart = cart.filter(item => item.id !== id);
             localStorage.setItem('cart', JSON.stringify(updatedCart));
             location.reload(); // Recarga la página para actualizar el carrito
@@ -149,14 +146,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Manejar el clic en el botón de comprar
-    document.getElementById('checkoutBtn').addEventListener('click', () => {
-        const confirmPurchase = confirm('¿Quieres comprar estos productos?');
-        if (confirmPurchase) {
-            alert('Gracias por tu compra.');
-            localStorage.removeItem('cart');
-            location.reload(); // Recarga la página para limpiar el carrito
+    checkoutBtn.addEventListener('click', () => {
+        if (cart.length > 0) {
+            showModal();
+        } else {
+            alert('Tu carrito está vacío.');
         }
     });
+
+    function showModal() {
+        // Crear el modal si no existe
+        let modal = document.getElementById('checkoutModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'checkoutModal';
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h2>Confirmar Compra</h2>
+                    <p>¿Quieres comprar estos productos?</p>
+                    <button id="confirmPurchaseBtn">Confirmar Compra</button>
+                    <button id="cancelPurchaseBtn">Cancelar</button>
+                    <button id="downloadReceiptBtn">Descargar Recibo</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            // Manejar clic en los botones del modal
+            document.getElementById('confirmPurchaseBtn').addEventListener('click', () => {
+                alert('Gracias por tu compra.');
+                downloadReceipt(); // Descargar recibo
+                clearCart(); // Limpiar carrito después de compra
+                modal.style.display = 'none';
+            });
+
+            document.getElementById('cancelPurchaseBtn').addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            document.getElementById('downloadReceiptBtn').addEventListener('click', () => {
+                if (cart.length > 0) {
+                    downloadReceipt(); // Descargar recibo
+                    clearCart(); // Limpiar carrito después de descarga
+                    modal.style.display = 'none';
+                } else {
+                    alert('No hay productos para descargar el recibo.');
+                }
+            });
+        }
+
+        modal.style.display = 'flex';
+    }
+
+    function downloadReceipt() {
+        // Generar y descargar el archivo PDF (puedes usar una librería como jsPDF aquí)
+        const blob = new Blob(["Recibo de Compra"], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'recibo.txt';
+        document.body.appendChild(a);
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    function clearCart() {
+        localStorage.removeItem('cart');
+        cartItemsContainer.innerHTML = ''; // Limpiar el contenedor de productos
+        totalElement.textContent = '0.00'; // Restablecer el total
+        setTimeout(() => {
+            location.reload(); // Recargar la página para mostrar el carrito vacío
+        }, 100); // Retardo de 100ms para asegurar la limpieza
+    }
 });
 
 // Agregar productos al carrito (esto va en la página de productos)

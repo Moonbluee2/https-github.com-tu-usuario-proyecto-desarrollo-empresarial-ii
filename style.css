@@ -544,9 +544,18 @@ body.dark .cart a i {
     transition: opacity 0.3s ease; /* Transición para suavizar el cambio de visibilidad */
 }
 
-/*Carrito de compras*/
+/* Carrito de compras */
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Estilos para la sección del carrito */
 section.cart {
-    max-width: 800px; /* Ajusta el ancho  */
+    max-width: 800px; /* Ajusta el ancho */
     margin: 100px auto; /* Centra el contenedor horizontalmente y añade margen superior */
     padding: 20px;
     background-color: #fff;
@@ -555,44 +564,59 @@ section.cart {
     text-align: center; /* Opcional: centra el texto dentro del contenedor */
 }
 
+/* Títulos del carrito */
 .cart h1 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
 }
 
+/* Contenedor de los artículos del carrito */
 .cart-items {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column; /* Asegura que los productos se muestren uno debajo del otro */
 }
 
+/* Elemento del artículo del carrito */
 .cart-item {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     border-bottom: 1px solid #ddd;
     justify-content: space-between; /* Espacia el contenido del item */
 }
 
+/* Imagen del artículo del carrito */
 .cart-item img {
-    width: 130px;
+    width: 150px; /* Aumentar el tamaño de la imagen */
     height: auto;
-    margin-right: 15px;
+    margin-right: 20px;
+    border-radius: 5px;
 }
 
+/* Información del artículo */
 .item-info {
     flex-grow: 1;
     text-align: left; /* Alinea el texto a la izquierda */
 }
 
+/* Botón de eliminar artículo */
 .remove-btn {
     background: #e74c3c;
     color: #fff;
     border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
 }
 
+.remove-btn:hover {
+    background: #c0392b;
+}
+
+/* Total del carrito */
 .cart-total {
     display: flex;
     justify-content: space-between;
@@ -600,19 +624,116 @@ section.cart {
     padding-top: 20px;
 }
 
+/* Título del total */
 .cart-total h3 {
     margin: 0;
+    font-size: 20px;
+    color: #333;
 }
 
+/* Botón de comprar */
 #checkoutBtn {
     background: #2ecc71;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 12px 25px;
+    border-radius: 5px;
     cursor: pointer;
+    margin-top: 30px; /* Añadir margen superior para separar del total */
+    font-size: 16px;
 }
 
 #checkoutBtn:hover {
     background: #27ae60;
+}
+
+/* Estilos para los modales */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#confirmPurchaseBtn {
+    background: #2ecc71;
+    color: #fff;
+}
+
+#cancelPurchaseBtn {
+    background: #e74c3c;
+    color: #fff;
+}
+
+#downloadReceiptBtn {
+    background: #007bff;
+    color: #fff;
+}
+
+#confirmPurchaseBtn:hover {
+    background: #27ae60;
+}
+
+#cancelPurchaseBtn:hover {
+    background: #c0392b;
+}
+
+#downloadReceiptBtn:hover {
+    background: #0056b3;
+}
+
+#closeReceiptModalBtn {
+    background: #999;
+    color: #fff;
+}
+
+#closeReceiptModalBtn:hover {
+    background: #666;
+}
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+.modal button {
+    margin: 5px;
 }
